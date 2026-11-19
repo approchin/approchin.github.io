@@ -1,0 +1,66 @@
+[
+  {
+    "id": "02",
+    "label": "转向行走",
+    "video": "02_turn_and_walk.mp4",
+    "poster": "02_turn_and_walk.jpg",
+    "seconds": 3.52,
+    "mae": 5.96
+  },
+  {
+    "id": "03",
+    "label": "侧步转向",
+    "video": "03_side_steps.mp4",
+    "poster": "03_side_steps.jpg",
+    "seconds": 6.76,
+    "mae": 6.81
+  },
+  {
+    "id": "04",
+    "label": "快速锁舞",
+    "video": "04_fast_locking.mp4",
+    "poster": "04_fast_locking.jpg",
+    "seconds": 3.04,
+    "mae": 7.94
+  },
+  {
+    "id": "05",
+    "label": "交叉步舞蹈",
+    "video": "05_cross_steps.mp4",
+    "poster": "05_cross_steps.jpg",
+    "seconds": 4.44,
+    "mae": 6.83
+  },
+  {
+    "id": "06",
+    "label": "举臂欢呼",
+    "video": "06_overhead_cheer.mp4",
+    "poster": "06_overhead_cheer.jpg",
+    "seconds": 8.62,
+    "mae": 7.5
+  },
+  {
+    "id": "07",
+    "label": "摆胯律动",
+    "video": "07_hip_groove.mp4",
+    "poster": "07_hip_groove.jpg",
+    "seconds": 5.52,
+    "mae": 6.64
+  },
+  {
+    "id": "08",
+    "label": "非对称转身",
+    "video": "08_asymmetric_turn.mp4",
+    "poster": "08_asymmetric_turn.jpg",
+    "seconds": 6.02,
+    "mae": 6.93
+  },
+  {
+    "id": "09",
+    "label": "跳绳式步法",
+    "video": "09_rope_style_steps.mp4",
+    "poster": "09_rope_style_steps.jpg",
+    "seconds": 6.28,
+    "mae": 8.39
+  }
+]

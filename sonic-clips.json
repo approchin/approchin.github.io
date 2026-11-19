@@ -1,0 +1,100 @@
+[
+  {
+    "id": "01",
+    "label": "下蹲起身",
+    "reference": "squat_and_rise",
+    "seconds": 8.88,
+    "a": {
+      "video": "squat_and_rise-a.mp4",
+      "poster": "squat_and_rise-a.jpg"
+    },
+    "b": {
+      "video": "squat_and_rise-b.mp4",
+      "poster": "squat_and_rise-b.jpg"
+    }
+  },
+  {
+    "id": "02",
+    "label": "转身舞步",
+    "reference": "full_turn_dance",
+    "seconds": 6.68,
+    "a": {
+      "video": "full_turn_dance-a.mp4",
+      "poster": "full_turn_dance-a.jpg"
+    },
+    "b": {
+      "video": "full_turn_dance-b.mp4",
+      "poster": "full_turn_dance-b.jpg"
+    }
+  },
+  {
+    "id": "03",
+    "label": "侧向行走与停止",
+    "reference": "sideways_walk_and_stop",
+    "seconds": 6.74,
+    "a": {
+      "video": "sideways_walk_and_stop-a.mp4",
+      "poster": "sideways_walk_and_stop-a.jpg"
+    },
+    "b": {
+      "video": "sideways_walk_and_stop-b.mp4",
+      "poster": "sideways_walk_and_stop-b.jpg"
+    }
+  },
+  {
+    "id": "04",
+    "label": "快走配手势",
+    "reference": "brisk_walk_arm_gesture",
+    "seconds": 7.5,
+    "a": {
+      "video": "brisk_walk_arm_gesture-a.mp4",
+      "poster": "brisk_walk_arm_gesture-a.jpg"
+    },
+    "b": {
+      "video": "brisk_walk_arm_gesture-b.mp4",
+      "poster": "brisk_walk_arm_gesture-b.jpg"
+    }
+  },
+  {
+    "id": "05",
+    "label": "身体伸展",
+    "reference": "body_stretch",
+    "seconds": 7.62,
+    "a": {
+      "video": "body_stretch-a.mp4",
+      "poster": "body_stretch-a.jpg"
+    },
+    "b": {
+      "video": "body_stretch-b.mp4",
+      "poster": "body_stretch-b.jpg"
+    }
+  },
+  {
+    "id": "06",
+    "label": "转身摆步",
+    "reference": "turning_swing_step",
+    "seconds": 6.1,
+    "a": {
+      "video": "turning_swing_step-a.mp4",
+      "poster": "turning_swing_step-a.jpg"
+    },
+    "b": {
+      "video": "turning_swing_step-b.mp4",
+      "poster": "turning_swing_step-b.jpg"
+    }
+  },
+  {
+    "id": "07",
+    "label": "快速上身舞蹈",
+    "reference": "fast_upper_body_dance",
+    "seconds": 3.04,
+    "a": {
+      "video": "fast_upper_body_dance-a.mp4",
+      "poster": "fast_upper_body_dance-a.jpg"
+    },
+    "b": {
+      "video": "fast_upper_body_dance-b.mp4",
+      "poster": "fast_upper_body_dance-b.jpg"
+    }
+  }
+]

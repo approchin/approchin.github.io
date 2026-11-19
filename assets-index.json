@@ -1,0 +1,22 @@
+[
+  {
+    "file": "assets-01.zip",
+    "sha256": "7c1e210e7589d7c324b8abe75a4a1006e9fdb6625a1ccdfc872c0e0b9175c4c3",
+    "entries": 8
+  },
+  {
+    "file": "assets-02.zip",
+    "sha256": "96f082adfcf4597bf00a42c4889a87f3a2289ccf38b34848df760a7247f79b70",
+    "entries": 8
+  },
+  {
+    "file": "assets-03.zip",
+    "sha256": "cc55908430d394f18224c19e970dee0cb094890f17a20d95d3ad7e6b627edc91",
+    "entries": 9
+  },
+  {
+    "file": "assets-04.zip",
+    "sha256": "7a0a0a20b32387b6d7f235813c64a0eb39f4dc619381b4112bfd7bbe01f9c348",
+    "entries": 97
+  }
+]
