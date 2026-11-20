@@ -77,6 +77,8 @@ $$
 
 ## 代码与权重 {#release}
 
-SONIC-PM01 准备分发独立 CPU 推理代码、输入输出契约、模型卡和校验清单。四组候选覆盖 A/B 各自的 4k 与 28k，提供 ONNX 和 safetensors。正式的 GitHub 代码与 Hugging Face 权重链接将在相应仓库上线后补入。
+[GitHub 推理源码](https://github.com/approchin/sonic-pm01) · [下载 A/B 权重（v0.1.0）](https://github.com/approchin/sonic-pm01/releases/tag/v0.1.0) · [权重清单与使用说明](https://github.com/approchin/sonic-pm01/blob/main/docs/weights.md)
+
+源码仓库包含独立的 CPU 推理代码和输入输出契约。Release 提供 A、B 各自的 4k 与 28k 检查点，每组都有 ONNX 和 safetensors。任选一个检查点压缩包，解压到源码仓库根目录，保留 `weights/` 路径即可运行推理示例。
 
 适配基于 [NVIDIA GEAR-SONIC](https://nvlabs.github.io/GEAR-SONIC/)，参考 [Any2Any](https://any2any.top/) 的跨机器人适配思路。展示是 PhysX 的仿真轨迹，不是持续真机控制的验收结果。原始动作与机器人模型不随网页分发。

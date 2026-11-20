@@ -98,12 +98,14 @@ $$
 
 ## 代码与权重 {#release}
 
-首版准备发布 PM01 离线推理、训练和仿真评测核心。GitHub 和 Hugging Face 的正式链接将在对应仓库上线后补到这里。
+[GitHub 源码与使用说明](https://github.com/approchin/SuperMimic-PM01) · [65k 权重文件（v0.1.0）](https://github.com/approchin/SuperMimic-PM01/tree/v0.1.0/models)
+
+v0.1.0 包含训练、仿真评测和离线推理代码。仓库的 `models/` 目录提供两份 65k 权重：
 
 - **CPU 推理：** `actor_65000_fp32.onnx`，包含 Actor 与归一化，配合 `robot_spec.json` 使用。
 - **检查与重导出：** 脱敏的 `actor_0000065000.pt` 附模型卡、校验清单与独立模型许可。
 
-拿到代码和 ONNX 后，把模型放进代码仓库的 `models/`，运行合成输入的最小示例：
+在源码仓库根目录运行最小示例，用 `models/` 中的 ONNX 做一次 CPU 推理：
 
 ```sh
 python -m pip install -r inference/requirements.txt

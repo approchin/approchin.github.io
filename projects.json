@@ -2,11 +2,11 @@
   {
     "slug": "supermimic-pm01",
     "title": "SuperMimic-PM01",
-    "description": "用世界模型训练 PM01 动作跟踪策略，展示 65k 权重的仿真对照、推理流程和评测。"
+    "description": "用世界模型训练 PM01 动作跟踪策略，查看仿真对照、评测、源码与 65k 权重。"
   },
   {
     "slug": "sonic-pm01",
     "title": "SONIC-PM01",
-    "description": "将 G1 上的 SONIC 策略迁移到 PM01，对照固定与微调参考编码器的两种方案。"
+    "description": "将 G1 上的 SONIC 策略迁移到 PM01，查看 A/B 对照、推理源码与四组权重。"
   }
 ]
