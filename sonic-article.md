@@ -77,7 +77,7 @@ $$
 
 ## 代码与权重 {#release}
 
-[GitHub 推理源码](https://github.com/approchin/sonic-pm01) · [下载 A/B 权重（v0.1.0）](https://github.com/approchin/sonic-pm01/releases/tag/v0.1.0) · [权重清单与使用说明](https://github.com/approchin/sonic-pm01/blob/main/docs/weights.md)
+[GitHub 推理源码](https://github.com/approchin/sonic-pm01) · [Hugging Face 模型卡与 A/B 权重](https://huggingface.co/approchin/sonic-pm01) · [GitHub 下载 A/B 权重（v0.1.0）](https://github.com/approchin/sonic-pm01/releases/tag/v0.1.0) · [权重清单与使用说明](https://github.com/approchin/sonic-pm01/blob/main/docs/weights.md)
 
 源码仓库包含独立的 CPU 推理代码和输入输出契约。Release 提供 A、B 各自的 4k 与 28k 检查点，每组都有 ONNX 和 safetensors。任选一个检查点压缩包，解压到源码仓库根目录，保留 `weights/` 路径即可运行推理示例。
 

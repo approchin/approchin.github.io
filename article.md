@@ -98,7 +98,7 @@ $$
 
 ## 代码与权重 {#release}
 
-[GitHub 源码与使用说明](https://github.com/approchin/SuperMimic-PM01) · [65k 权重文件（v0.1.0）](https://github.com/approchin/SuperMimic-PM01/tree/v0.1.0/models)
+[GitHub 源码与使用说明](https://github.com/approchin/SuperMimic-PM01) · [Hugging Face 模型卡与 65k 权重](https://huggingface.co/approchin/SuperMimic-PM01) · [GitHub 65k 权重文件（v0.1.0）](https://github.com/approchin/SuperMimic-PM01/tree/v0.1.0/models)
 
 v0.1.0 包含训练、仿真评测和离线推理代码。仓库的 `models/` 目录提供两份 65k 权重：
 
