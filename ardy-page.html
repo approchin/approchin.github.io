@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在 Colab T4 上复现 ARDY 语音口令控制，比较 G1 的动作窗口、口令打断和 MuJoCo 仿真。">
+  <meta name="theme-color" content="#f3f6f5">
+  <title>ARDY · 语音控制人形动作</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/mark.svg">
+  <link rel="stylesheet" href="../assets/article.css">
+  <style>
+    .ardy-page .article-open h1 { font-size: clamp(2.3rem, 7vw, 5.15rem); line-height: 1.12; }
+    .ardy-page .story video { display: block; width: 100%; max-width: 100%; height: auto; border-radius: .4rem; background: #172321; }
+    .ardy-page .story figure { margin: 1.2rem 0 1.7rem; }
+    .ardy-page .story figcaption { margin-top: .55rem; font-size: .9rem; line-height: 1.65; }
+    .ardy-page .study-facts { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 1rem; margin: 0 0 1.6rem; }
+    .ardy-page .study-facts div { border-top: 1px solid #a8bbb3; padding-top: .6rem; }
+    .ardy-page .study-facts dt { font-size: .86rem; color: #4e645c; }
+    .ardy-page .study-facts dd { margin: .23rem 0 0; font-size: 1.22rem; font-weight: 650; }
+    .ardy-page .article-nav { position: static; }
+    @media(max-width: 520px) { .ardy-page .study-facts { gap: .6rem; } .ardy-page .study-facts dd { font-size: 1rem; } }
+  </style>
+</head>
+<body class="ardy-page">
+  <a class="skip" href="#content">跳到正文</a>
+  <header class="masthead">
+    <div class="frame masthead-inner">
+      <a href="../index.html" class="site-id" aria-label="返回项目目录">
+        <img class="site-mark" src="../assets/mark.svg" width="26" height="26" alt="">
+        项目目录
+      </a>
+      <div class="masthead-links"><a class="masthead-link" href="#record">实验数据</a></div>
+    </div>
+  </header>
+  <main id="content">
+    <article>
+      <header class="article-open frame" id="top">
+        <h1>ARDY<span> · 语音控制人形动作</span></h1>
+        <p class="article-deck">说出前进、左转和停止，让人形角色接着眼前的动作走。把同一组口令放到宇树 G1 上，观察下一段动作什么时候生效，以及参考轨迹能否被控制器跟上。</p>
+      </header>
+      <nav class="article-nav" aria-label="本文目录">
+        <div class="frame article-nav-inner">
+          <a href="#demo">语音 Demo</a>
+          <a href="#interruption">G1 打断实验</a>
+          <a href="#simulation">社区仿真</a>
+          <a href="#record">实验数据</a>
+        </div>
+      </nav>
+      <div class="frame story">
+        {{ARTICLE}}
+      </div>
+    </article>
+  </main>
+  <footer class="frame page-end">
+    <p>ARDY · 复现与仿真 · 2026 年 11 月</p>
+    <p><a href="https://research.nvidia.com/labs/sil/projects/ardy/">NVIDIA ARDY</a></p>
+  </footer>
+</body>
+</html>

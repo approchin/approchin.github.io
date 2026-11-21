@@ -13,5 +13,10 @@
     "slug": "streamtalk",
     "title": "StreamTalk · 语音驱动手势",
     "description": "Colab T4 推理、关键姿态对照和静音恢复实验，与 EMAGE 共用同一段录音。"
+  },
+  {
+    "slug": "ardy",
+    "title": "ARDY 语音控制动作生成",
+    "description": "从三条语音口令生成连续动作，比较 G1 中途改令、停止距离和 MuJoCo 跟踪。"
   }
 ]

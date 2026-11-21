@@ -150,6 +150,13 @@ def write_page(path, fields, template="page.html"):
     print(f"Built {path.relative_to(ROOT)}")
 
 
+def build_ardy():
+    shutil.copytree(ROOT / "ardy-assets", DIST / "assets" / "ardy", dirs_exist_ok=True)
+    write_page(DIST / "ardy" / "index.html", {
+        "ARTICLE": render_article("ardy-article.md", "ARDY 语音指令和 G1 实验结果", "../"),
+    }, template="ardy-page.html")
+
+
 def build_catalog():
     projects = json.loads((ROOT / "projects.json").read_text(encoding="utf-8"))
     rows = []
@@ -174,6 +181,7 @@ def build():
     build_supermimic()
     build_sonic()
     shutil.copytree(ROOT / "streamtalk", DIST / "streamtalk", dirs_exist_ok=True)
+    build_ardy()
     build_catalog()
     (DIST / ".nojekyll").touch()
 
