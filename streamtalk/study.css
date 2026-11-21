@@ -1,0 +1,37 @@
+.speech-study{--ink:#182d3d;--muted:#485e68;--paper:#f3f6f5;--line:#ccd8d9;--teal:#126c61;--copper:#9e4c2e;background:var(--paper);color:var(--ink)}
+.speech-study .study-wrap{width:min(100% - 2.5rem,60rem);margin-inline:auto}
+.speech-study .study-open{padding:clamp(2.25rem,7vw,5.5rem) 0 1.7rem}
+.speech-study .study-open h1{font-size:clamp(2.65rem,8vw,5.8rem);line-height:.97;letter-spacing:-.055em;margin:0}
+.speech-study .study-open h1 span{display:block;font-size:.48em;letter-spacing:-.035em;margin-top:.5rem}
+.speech-study .study-lead{font-size:clamp(1.05rem,2.2vw,1.4rem);color:var(--muted);max-width:35em;margin:1.25rem 0 1rem}
+.speech-study .study-nav,.speech-study .study-links{display:flex;flex-wrap:wrap;gap:.35rem 1.3rem;padding:0;margin:1.15rem 0;list-style:none}
+.speech-study a{color:var(--teal);text-underline-offset:.16em}
+.speech-study a:focus-visible,.speech-study video:focus-visible,.speech-study .study-table:focus-visible{outline:2px solid var(--teal);outline-offset:4px}
+.speech-study .study-section{padding:2.15rem 0;border-top:1px solid var(--line);scroll-margin-top:5rem}
+.speech-study .study-section h2{margin:0 0 .9rem;font-size:clamp(1.5rem,3.8vw,2.4rem);letter-spacing:-.035em}
+.speech-study .study-section h3{font-size:clamp(1.25rem,3vw,1.8rem);margin:2rem 0 .9rem}
+.speech-study .study-section p{max-width:47em;line-height:1.85}
+.speech-study .study-video{max-width:52rem;margin:1.05rem 0}
+.speech-study .study-video video{display:block;width:100%;height:auto;aspect-ratio:7/4;background:#101c2a;border:1px solid #293847;border-radius:7px}
+.speech-study .study-video figcaption{margin:.55rem 0;color:var(--muted);font-size:.9rem}
+.speech-study .study-video figcaption a{margin-left:.32rem;white-space:nowrap}
+.speech-study .study-facts{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));max-width:52rem;gap:.75rem;margin:1.3rem 0}
+.speech-study .study-facts div{padding:.85rem .75rem;background:#fff;border-top:2px solid var(--line)}
+.speech-study .study-facts dt{font-size:.86rem;color:var(--muted)}
+.speech-study .study-facts dd{font-weight:750;font-size:clamp(1rem,3.3vw,1.65rem);margin:0;font-variant-numeric:tabular-nums}
+.speech-study .study-facts small{display:block;font-size:.68rem;color:var(--muted);font-weight:400}
+.speech-study .study-table{width:100%;overflow-x:auto}
+.speech-study .study-table table{min-width:620px;width:100%;border-collapse:collapse;background:#fff}
+.speech-study .study-table th,.speech-study .study-table td{padding:.7rem .8rem;text-align:left;border-bottom:1px solid var(--line);font-variant-numeric:tabular-nums}
+.speech-study .study-table thead th{background:#e1ecea}
+.speech-study .pause-chart{background:#fff;border:1px solid var(--line);padding:1rem 1.25rem;max-width:52rem;margin:1.2rem 0}
+.speech-study .chart-heading{font-size:1.05rem;font-weight:740}
+.speech-study .chart-heading span{font-size:.8rem;color:var(--muted);font-weight:400;margin-left:.3rem}
+.speech-study .chart-unit{margin-top:.9rem}
+.speech-study .chart-unit h4{margin:0 0 .2rem;font-size:.88rem}
+.speech-study .chart-row{display:grid;align-items:center;grid-template-columns:4.4rem 1fr 3.9rem;gap:.55rem;margin:.15rem 0;font-size:.82rem}
+.speech-study .chart-row i{display:block;width:var(--bar);height:.57rem;background:var(--teal)}
+.speech-study .chart-row.chart-gate i{background:var(--copper)}
+.speech-study .chart-row strong{text-align:right;font-variant-numeric:tabular-nums}
+.speech-study .study-footer{display:flex;justify-content:space-between;gap:1rem;padding:1.2rem 0 2rem;border-top:1px solid var(--line);color:var(--muted);font-size:.86rem}
+@media(max-width:520px){.speech-study .study-wrap{width:min(100% - 1.5rem,60rem)}.speech-study .study-facts{gap:.35rem}.speech-study .study-facts div{padding:.65rem .45rem}.speech-study .study-facts dt{font-size:.73rem}}

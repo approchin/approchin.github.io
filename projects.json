@@ -8,5 +8,10 @@
     "slug": "sonic-pm01",
     "title": "SONIC-PM01",
     "description": "将 G1 上的 SONIC 策略迁移到 PM01，查看 A/B 对照、推理源码与四组权重。"
+  },
+  {
+    "slug": "streamtalk",
+    "title": "StreamTalk · 语音驱动手势",
+    "description": "Colab T4 推理、关键姿态对照和静音恢复实验，与 EMAGE 共用同一段录音。"
   }
 ]

@@ -173,6 +173,7 @@ def build():
     shutil.copytree(ROOT / "assets", DIST / "assets", dirs_exist_ok=True)
     build_supermimic()
     build_sonic()
+    shutil.copytree(ROOT / "streamtalk", DIST / "streamtalk", dirs_exist_ok=True)
     build_catalog()
     (DIST / ".nojekyll").touch()
 

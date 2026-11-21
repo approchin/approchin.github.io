@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="在单张 Colab T4 上复现语音驱动手势，比较 StreamTalk 的关键姿态锚定、暂停响应和 EMAGE。">
+  <meta name="theme-color" content="#f3f6f5">
+  <title>StreamTalk · 语音驱动手势复现</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/mark.svg">
+  <link rel="stylesheet" href="../assets/article.css">
+  <link rel="stylesheet" href="study.css">
+</head>
+<body class="speech-study">
+  <a class="skip" href="#content">跳到正文</a>
+  <header class="masthead"><div class="frame masthead-inner">
+    <a class="site-id" href="../"><img src="../assets/mark.svg" width="26" height="26" alt="">项目目录</a>
+  </div></header>
+  <main id="content" class="study-wrap">
+    <header class="study-open">
+      <h1>StreamTalk<span>语音驱动手势</span></h1>
+      <p class="study-lead">从一段真实录音生成全身动作，再用停顿和长段对照检查动作何时该继续、何时该停。</p>
+      <nav class="study-nav" aria-label="实验目录">
+        <a href="#demo">官方权重推理</a><a href="#study">进阶实验</a><a href="#community">EMAGE 对照</a><a href="#methods">数据与方法</a>
+      </nav>
+    </header>
+
+    <section id="demo" class="study-section">
+      <h2>官方权重推理</h2>
+      <figure class="study-video">
+        <video controls playsinline preload="metadata" width="504" height="288" aria-label="StreamTalk 生成骨架和 Scott 真人采集骨架对照">
+          <source src="media/demo.mp4" type="video/mp4"><a href="media/demo.mp4">下载推理对照短片</a>
+        </video>
+        <figcaption>左侧为本次生成动作，右侧为 BEAT2 的真人动作。两边共用同一段 Scott 录音。<a href="media/demo.mp4">打开视频</a></figcaption>
+      </figure>
+      <dl class="study-facts">
+        <div><dt>生成动作</dt><dd>62.67 秒</dd></div>
+        <div><dt>动作帧率</dt><dd>30 FPS</dd></div>
+        <div><dt>T4 峰值显存</dt><dd>2.54 GiB<small>PyTorch 已分配</small></dd></div>
+      </dl>
+      <p>64.10 秒的输入生成了 1,880 帧，包含 55 个关节的旋转、根位移和表情系数。程式记录的生成吞吐为 62.8 帧/秒，计入音频特征提取与分窗生成。</p>
+      <p>用官方评分器在 Colab CPU 上重算作者发布的 15 条 Scott 预测，FGD 为 <strong>0.378901</strong>，与发布包参考值相差约 0.000022。 <a href="https://huggingface.co/datasets/X-Zhang/StreamTalk-Inference-Data">作者评测包</a></p>
+    </section>
+
+    <section id="study" class="study-section">
+      <h2>进阶实验</h2>
+      <p>固定语音、前 8 帧真人姿态和逐窗噪声，对比完整的 SPG 锚定与重采样流程。表中的腕部位移以骨盆位置为原点，接缝统计取实际重叠区的入口和出口。</p>
+      <div class="study-table" role="region" tabindex="0" aria-label="Scott 分窗拼接和根位置对照">
+        <table>
+          <thead><tr><th scope="col">Scott 测试录音</th><th scope="col">输出</th><th scope="col">接缝腕位移 P95（开 / 关）</th><th scope="col">根位置首尾距离（开 / 关）</th></tr></thead>
+          <tbody><tr><th scope="row">2_scott_0_1_1</th><td>62.67 秒</td><td>3.58 / 3.64 厘米</td><td>37.03 / 20.87 厘米</td></tr>
+          <tr><th scope="row">2_scott_0_2_2</th><td>24.53 秒</td><td>4.51 / 2.86 厘米</td><td>33.88 / 30.40 厘米</td></tr>
+          <tr><th scope="row">2_scott_0_65_65</th><td>24.53 秒</td><td>3.14 / 4.37 厘米</td><td>21.51 / 32.36 厘米</td></tr></tbody>
+        </table>
+      </div>
+      <p>三个片段里，启用 SPG 后有两段接缝腕位移下降，一段上升。第二段从 2.86 厘米升至 4.51 厘米，第三段从 4.37 厘米降至 3.14 厘米。锚定强度需要结合上下文和候选姿态质量来判断。</p>
+
+      <h3>讲话停了，手势还在继续</h3>
+      <figure class="study-video">
+        <video controls playsinline preload="metadata" poster="media/pause-still.jpg" width="504" height="288" aria-label="静音试验中的 StreamTalk 原输出和暂停门对照">
+          <source src="media/pause.mp4" type="video/mp4"><a href="media/pause.mp4">下载暂停对照短片</a>
+        </video>
+        <figcaption>左侧为模型原始输出，右侧为能量门控制。音频在 17.725 秒处插入 3 秒静音。<a href="media/pause.mp4">打开视频</a></figcaption>
+      </figure>
+      <div class="pause-chart" role="group" aria-label="不同阶段腕速的95百分位，单位厘米每秒">
+        <div class="chart-heading">腕速 P95 <span>厘米/秒</span></div>
+        <div class="chart-unit">
+          <h4>静音中段</h4>
+          <div class="chart-row"><span>模型输出</span><i style="--bar:69%" aria-hidden="true"></i><strong>137.35</strong></div>
+          <div class="chart-row chart-gate"><span>暂停门</span><i style="--bar:0%" aria-hidden="true"></i><strong>0.00</strong></div>
+        </div>
+        <div class="chart-unit">
+          <h4>恢复首 0.4 秒</h4>
+          <div class="chart-row"><span>模型输出</span><i style="--bar:32%" aria-hidden="true"></i><strong>63.49</strong></div>
+          <div class="chart-row chart-gate"><span>暂停门</span><i style="--bar:98%" aria-hidden="true"></i><strong>196.49</strong></div>
+        </div>
+      </div>
+      <p>能量门在低能量持续 0.5 秒后保持姿态，复声时用 0.4 秒恢复。静音中段的动作停住了，恢复段腕速却升到了原输出的约 3.1 倍。机器人交互里，触发时机、保持姿态、恢复轨迹需要分别设计。</p>
+      <p>在相同位置改插 3 秒同说话人的有声音频，并取两个插入片段的中央 2 秒。静音的平均腕速为 50.11 厘米/秒，有声为 65.94 厘米/秒。静音里的 P95 仍达到 137.35 厘米/秒，高于等长有声对照的 119.54 厘米/秒。</p>
+    </section>
+
+    <section id="community" class="study-section">
+      <h2>社区对照 · EMAGE audio-only</h2>
+      <figure class="study-video">
+        <video controls playsinline preload="metadata" width="504" height="288" aria-label="同一段语音的 StreamTalk 生成骨架与 EMAGE 骨架对照">
+          <source src="media/emage.mp4" type="video/mp4"><a href="media/emage.mp4">下载同音频对照短片</a>
+        </video>
+        <figcaption>左侧 StreamTalk，右侧 EMAGE。两种模型从同一段录音生成动作，以共同的 62.67 秒比较。<a href="media/emage.mp4">打开视频</a></figcaption>
+      </figure>
+      <p>在共同区间内，StreamTalk 的根位置首尾距离为 0.37 米，EMAGE 为 5.42 米。StreamTalk 使用 8 帧真人姿态热启动，EMAGE 的公开音频入口使用自身初始化。比较保留了两种公开入口的默认条件。 <a href="https://pantomatrix.github.io/EMAGE/">EMAGE 项目</a></p>
+    </section>
+
+    <section id="methods" class="study-section methods">
+      <h2>数据与方法</h2>
+      <p>实验使用官方发布权重、Scott 测试录音及 BEAT2 的 95 条 Scott 训练动作构建检索库。StreamTalk 采用 60 帧窗口、8 帧重叠和 CFG 3。本次 SPG 用仓库自带的 Scott 固定静止骨架做前向运动学。音频按整段输入、生成按窗口执行。</p>
+      <p>Colab 使用一张 Tesla T4。训练耗时为零。视频显示关节骨架，动作文件另外保存了表情系数。 <a href="benchmarks.json">查看实验数字与来源</a></p>
+      <ul class="study-links">
+        <li><a href="https://github.com/Xiangyue-Zhang/StreamTalk">StreamTalk 官方源码</a></li>
+        <li><a href="https://arxiv.org/abs/2608.01643">StreamTalk 论文</a></li>
+        <li><a href="https://huggingface.co/datasets/haiyangliu0/BEAT2">BEAT2 语音与动作数据</a></li>
+        <li><a href="https://huggingface.co/haiyangliu0/emage_audio">EMAGE audio-only 权重</a></li>
+      </ul>
+    </section>
+  </main>
+  <footer class="study-wrap study-footer"><a href="../">返回项目目录</a><time datetime="2026-11-22">2026 年 11 月 22 日</time></footer>
+</body>
+</html>
