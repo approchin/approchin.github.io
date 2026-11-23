@@ -1,0 +1,36 @@
+{
+  "source": "https://approchin.github.io/assets/ardy/representative-trajectories.zip",
+  "files": [
+    "G1_H52_after_boundary.csv",
+    "G1_H52_patch_52lookahead_after_boundary.csv"
+  ],
+  "same_first_2s": true,
+  "ref_first_2s_sole_min_median_max_m": [
+    0.12099531834292124,
+    0.14791084068951355,
+    0.16301136963060964
+  ],
+  "ref_first_frame_sites_m": [
+    0.18235443441681148,
+    0.20321014737252188
+  ],
+  "ref_first_frame_sole_m": [
+    0.12099531834292124,
+    0.17601134043447328
+  ],
+  "first_lower_sole_below_5cm_s": 2.68,
+  "reference_dx_at_below_5cm_m": 1.49260292,
+  "ref_first_pelvis_m": 0.74182999,
+  "ref_first_knees_rad": [
+    1.8121798,
+    1.82552409
+  ],
+  "same_root_neutral_joint_sole_m": [
+    -0.021717154472757245,
+    -0.023829053757125858
+  ],
+  "same_joints_identity_root_rotation_sole_m": [
+    0.12661442043526516,
+    0.20433505661102752
+  ]
+}

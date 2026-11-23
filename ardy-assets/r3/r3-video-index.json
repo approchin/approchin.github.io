@@ -1,0 +1,51 @@
+[
+  {
+    "file": "r3-height-only.mp4",
+    "frames": 125,
+    "duration_s": 5.0,
+    "sha256": "ec2ba85cfc1f65a9c3f8423db658f8a1339d797b933e94a2241aad8fc598cb5c",
+    "bytes": 174088
+  },
+  {
+    "file": "r3-integrated.mp4",
+    "frames": 270,
+    "duration_s": 10.8,
+    "sha256": "0db5794c71d13907e450a85cc530527d8531f891dbb0f449d98f7f86ea69d8a0",
+    "bytes": 413670
+  },
+  {
+    "file": "r3-interrupt.mp4",
+    "frames": 250,
+    "duration_s": 10.0,
+    "sha256": "7e7b9749d3ba5c4a63d072979102bfd80364acffd1c6ec3f52c52d3ff226616d",
+    "bytes": 303695
+  },
+  {
+    "file": "r3-outage.mp4",
+    "frames": 270,
+    "duration_s": 10.8,
+    "sha256": "c440196c87e3aed1ae04e33d026f9c12783575b033508291838bcf2e69e335aa",
+    "bytes": 384795
+  },
+  {
+    "file": "r3-short-outage.mp4",
+    "frames": 210,
+    "duration_s": 8.4,
+    "sha256": "e6f6cf3ae33a2905687d42391da5b11d450c285aca1d9d593d44fb30ce2496fa",
+    "bytes": 224760
+  },
+  {
+    "file": "r3-startup-bootstrap.mp4",
+    "frames": 150,
+    "duration_s": 6.0,
+    "sha256": "ba96ef73bdbfbb146357373b4a4d00a1147b44f6454759931adeb396ebb81990",
+    "bytes": 193847
+  },
+  {
+    "file": "r3-startup-seed.mp4",
+    "frames": 150,
+    "duration_s": 6.0,
+    "sha256": "f751dfba787711f615ed16df13e2704e1ecc8b6d60429349f56b1ac0b8580b5e",
+    "bytes": 213482
+  }
+]

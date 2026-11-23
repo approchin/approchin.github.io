@@ -249,6 +249,137 @@ C 组的窗边界关节转角步长 P95 为 4.15°，窗内为 3.92°。三组�
 
 官方版本为 ARDY G1 H8、Meta Llama 3 8B Instruct 和其两级 McGill LLM2Vec 适配器，以及 GEAR-SONIC G1 Low-Latency ONNX。Built with Meta Llama 3. [ARDY 固定版本](https://github.com/nv-tlabs/ardy/tree/e706e27acc88070918308a10922b8f7174d0825e) · [LLM2Vec](https://github.com/McGill-NLP/llm2vec) · [SONIC 低延迟权重](https://huggingface.co/nvidia/GEAR-SONIC/tree/6733128a3d8a523b1418b06bca3cdf61c8b0987f/low_latency)
 
+<h2 id="round3-buffer-grounding">第三轮 · 打断恢复与足部接地</h2>
+
+在相同的 ARDY H52 长窗下，定期重规划和指令版本保护把连发急停的参考切换从 **1.12 秒**缩短到 **0.24 秒**。起步用短窗生成接地步态，再交给长窗，解决了旧视频中根在移动而双脚无支撑的问题。
+
+### 长窗打断与断流
+
+ARDY 仍然预测 52 帧（2.08 秒）。每 0.40 秒准备下一窗，保护已送入播放的前缀，接缝留出至少可覆盖 SONIC 180 ms 预读的时间。实验基础保护参数为 0.24 秒，作业过晚时加大。优先组在收到新指令后尽早重规划，返回时按版本丢弃过期结果。只有到达缓冲的位姿能被控制器读取。缓冲见底时保持最后已收到的位姿，缺失槽的速度清零；收包后从冻结的运动时钟继续。
+
+| 策略 | 普通停止进入播放（ms） | 左转后 80 ms 改停（ms） | 连发场景再次转向（ms） |
+| --- | ---: | ---: | ---: |
+| 整窗顺序追加 | 1100 | 1120 | 2180 |
+| 每 0.40 秒重规划 | 380 | 400 | 500 |
+| 定期＋新指令优先 | 260 | 240 | 260 |
+
+以上每格为三组种子的中位数。连发场景优先组丢弃 3 个已过期的转向计算结果。停止参考到达播放和实际减速分别计时。接地后的优先缓冲中，连发急停参考进入播放的中位数为 **280 ms**，G1 达到停止判据为 **840 ms**。停止判据使用 0.2 秒回看速度，阈值 0.12 m/s，持续至少 8 个控制时刻。
+
+| 策略 | 0.64 秒断流最长保持（ms） | 2.56 秒断流最长保持（ms） | 长断流场景未来槽缺失率 | 长断流复机到完整预览（ms） |
+| --- | ---: | ---: | ---: | ---: |
+| 整窗顺序追加 | 260 | 1040 | 10.56% | 100 |
+| 每 0.40 秒重规划 | 0 | 480 | 5.37% | 100 |
+| 定期＋新指令优先 | 0 | 480 | 5.37% | 100 |
+
+同一个 10 秒连发场景，整窗、定期和优先策略分别提交 5、25、26 段参考。按 25 Hz 原始间隔测量接缝，平移速度跳变 P95 的逐次中位数分别为 0.46、0.15、0.13 m/s，单关节角最大步长的对应值为 3.9°、8.9°、9.0°。优先策略的参考切换更快，接缝的关节姿态跳变也更大。
+
+短断流由滚动队列完全吸收。长断流时，定期重规划减少了被迫保持的时间，三组策略在生产恢复后都约需 100 ms 重新提供完整的 180 ms 预览。优先策略在复机后的再次转向只需 340 ms 把参考送进播放，周期组需要 620 ms。断流后有完整参考、恢复动作以及最终路线误差是三项独立指标。
+
+真实墙钟下另跑三次，ARDY 生产与 50 Hz 播放分线程执行。表中复机延迟仍按控制时刻采样。
+
+| 墙钟实验 | 播放线程取样滞后 P95（ms） | 停止参考进入播放（ms） | 总保持（ms） | 复机到完整预览（ms） |
+| --- | ---: | ---: | ---: | ---: |
+| H52 连续改口令 | 0.83 | 319 | 0 | — |
+| H52 长窗断流 | 0.21 | 820 | 940 | 160 |
+| H8 起步＋H52 长窗断流 | 0.28 | 800 | 920 | 140 |
+
+主矩阵使用实测 T4 生产耗时推进离散缓冲时钟。真实墙钟长断流样本的总保持约 0.92–0.94 秒，完整预览恢复用 140–160 ms。这组墙钟结果给出了部署时需要预留的缓冲余量。
+
+### 起步悬空和生成端修正
+
+第一轮两个公开 H52 晚停样例共享前两秒的参考。支撑候选脚的较低碰撞鞋底离地中位数是 **14.8 cm**，范围 12.1–16.3 cm。首次降到 5 cm 以下发生在 **2.68 秒**，此时参考根已前进 **1.49 m**。首帧两侧膝角为 1.81 和 1.83 rad，骨盆高 0.742 m。保留骨盆位姿、把关节换成中立姿态后，脚底约低于地面 2.2–2.4 cm。保留相同关节、只把根四元数置为单位旋转，较低鞋底仍离地 12.7 cm。 [起因样例轨迹](https://approchin.github.io/assets/ardy/representative-trajectories.zip)
+
+新冷启动样例逐帧核对 ARDY 根的轴变换，并对比原生踝点与导出后的 MuJoCo 踝点。冷启动三组的全段踝高差中位数约 **0.22 mm**。已观测到的初始离地源自生成的深屈膝局部姿态和较高骨盆的组合。G1 Low-Latency 的参考输入使用关节角、关节速度和根朝向，单改参考根高的三组逐帧实际 36 列状态与冷启动 **完全相同**。直接降低仿真起步骨盆也没让机器人走起来。 [ARDY 坐标转换源码](https://github.com/nv-tlabs/ardy/blob/e706e27acc88070918308a10922b8f7174d0825e/ardy/exports/mujoco.py) · [SONIC 官方检查点](https://huggingface.co/nvidia/GEAR-SONIC/tree/6733128a3d8a523b1418b06bca3cdf61c8b0987f/low_latency)
+
+| 起步配置 | 前 2 秒较低鞋底净空 | 双脚离地且根仍在移动 | 前 2 秒机体实际前进 | 8 秒根跟踪 MAE | 跌倒 |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| H52 冷启动 | 11.5 cm | 99% | 0.015 m | 2.202 m | 0/3 |
+| 只投影参考根高 | 0.2 cm | 0% | 0.015 m | 2.202 m | 0/3 |
+| 只降低仿真初态 | 11.5 cm | 99% | -0.030 m | 2.298 m | 0/3 |
+| 参考与初态均降低 | 0.2 cm | 0% | -0.030 m | 2.298 m | 0/3 |
+| H52＋4 帧站姿历史 | 1.1 cm | 29% | 0.764 m | 0.627 m | 1/3 |
+| H52＋站姿和两个关键帧 | 0.9 cm | 12% | 0.778 m | 0.489 m | 0/3 |
+| 始终使用 H8 | 0.2 cm | 0% | 0.808 m | 0.465 m | 0/3 |
+| 前 0.64 秒用 H8，之后用 H52 | 0.1 cm | 0% | 0.821 m | 0.395 m | 0/3 |
+
+每行三组种子，中位数按逐次实验量计算。双脚离地且根仍在移动指两脚碰撞鞋底都离平面超过 2 cm，且参考根平面速度至少 0.12 m/s。足底距离由碰撞胶囊轴、半长和半径计算。跌倒使用连续至少 5 个控制帧的骨盆低于 0.45 m，或姿态倾斜超过 60°。
+
+可复用实现由 H8 生成前两窗共 16 帧，随后将同一表示的历史交给 H52。实测三组启动都消除了该悬空现象，实际前进中位数 **1.5 cm → 82.1 cm**。在整套优先缓冲中复测，急停连发的根跟踪 MAE 为 1.66 → 0.33 m，长断流为 2.12 → 0.37 m。部分新参考仍有毫米到厘米级瞬时穿透，逐次日志保留了最小净空和实际接触力。
+
+### 代表视频
+
+<figure>
+  <video controls playsinline preload="none" aria-label="起步悬空与 H8→H52 修正，同种子" width="1200" height="710"><source src="assets/ardy/r3/r3-startup-bootstrap.mp4" type="video/mp4"></video>
+  <figcaption>起步悬空与 H8→H52 修正，同种子</figcaption>
+</figure>
+
+<figure>
+  <video controls playsinline preload="none" aria-label="2.56 秒断流，整窗与滚动重规划" width="1200" height="710"><source src="assets/ardy/r3/r3-outage.mp4" type="video/mp4"></video>
+  <figcaption>2.56 秒断流，整窗与滚动重规划</figcaption>
+</figure>
+
+<figure>
+  <video controls playsinline preload="none" aria-label="80 ms 内连续输入左转和急停" width="1200" height="710"><source src="assets/ardy/r3/r3-interrupt.mp4" type="video/mp4"></video>
+  <figcaption>80 ms 内连续输入左转和急停</figcaption>
+</figure>
+
+<details>
+<summary>两种启动法接入同一优先缓冲</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="两种启动法接入同一优先缓冲" width="1200" height="710"><source src="assets/ardy/r3/r3-integrated.mp4" type="video/mp4"></video>
+  <figcaption>两种启动法接入同一优先缓冲</figcaption>
+</figure>
+</details>
+
+<details>
+<summary>H52 单模型的接地历史与关键帧</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="H52 单模型的接地历史与关键帧" width="1200" height="710"><source src="assets/ardy/r3/r3-startup-seed.mp4" type="video/mp4"></video>
+  <figcaption>H52 单模型的接地历史与关键帧</figcaption>
+</figure>
+</details>
+
+<details>
+<summary>只改参考根高，实际物理轨迹重合</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="只改参考根高，实际物理轨迹重合" width="1200" height="710"><source src="assets/ardy/r3/r3-height-only.mp4" type="video/mp4"></video>
+  <figcaption>只改参考根高，实际物理轨迹重合</figcaption>
+</figure>
+</details>
+
+<details>
+<summary>0.64 秒断流，滚动队列覆盖短暂停顿</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="0.64 秒断流，滚动队列覆盖短暂停顿" width="1200" height="710"><source src="assets/ardy/r3/r3-short-outage.mp4" type="video/mp4"></video>
+  <figcaption>0.64 秒断流，滚动队列覆盖短暂停顿</figcaption>
+</figure>
+</details>
+
+### 社区与近期算法
+
+- Motion Arena 通过预取 H52 窗口、替换尚未播放的续窗响应语音打断。原厂 ARDY demo 也以播放位置加保护缓冲决定可替换边界。本轮采用同样的后缀替换原则，并逐控制帧统计欠载。 [Motion Arena 客户端源码](https://github.com/neuralisa/motion-arena/blob/4e2031b66ef5f7370916967f9d192e748c3fa6e5/godot/scripts/main.gd#L329) · [ARDY 原厂重规划源码](https://github.com/nv-tlabs/ardy/blob/e706e27acc88070918308a10922b8f7174d0825e/scripts/interactive_demo/generation.py#L135)
+- ReactiveBFM 把规划放到控制线程之外，按指令版本拒绝旧结果，还从实际机体状态构造下一窗历史。取用已到达的参考和指令版本机制在本轮得到验证。实际机体状态反馈和论文的规划器训练是独立的研究方向。 [ReactiveBFM 论文](https://arxiv.org/html/2606.30362v3#S3.SS2) · [部署源码](https://github.com/zjwzcx/ReactiveBFM/blob/5a79d03cab824eb5917271ba720294e8a1b9d374/deploy/run_online_generation.py#L910)
+- 10 月的 StepControl 将支撑时序转成 ARDY 踝、趾高度约束，实验使用 Core H40。本轮按 G1 实际足底胶囊重新标定站姿，做原生起步历史与全身关键帧对照。11 月的 LHNav 在 P-SONIC 编码器加入真实骨盆与参考的偏差，并微调编码器，指向全局跟踪误差的后续实验。 [StepControl 附录](https://arxiv.org/html/2610.38153v1#A1.SS2) · [LHNav 论文](https://arxiv.org/html/2611.12136v1#S4)
+- FloodDiffusion 2 将已定稿历史与活动窗口的注意力拆开，以便复用 KV 缓存，并新增路径条件。它提供长序列推理提速的对照设计。 [FloodDiffusion 2 论文与代码](https://arxiv.org/abs/2609.33167)
+
+### 计时与复跑
+
+共 **45 次缓冲闭环回放**、**24 次起步闭环回放**和 1 次烟测。三个种子为 20261121、20261122、20261123。全部使用官方预训练权重，训练时长为 0。单张 Colab T4 在线约 25 分钟，包含依赖配置、模型缓存和参考交接。ARDY 生成运行于 T4；SONIC 与 MuJoCo 回放运行于 CPU。生成采用固定 4 次去噪、文本和空间 CFG 均为 2，打断输入是已解析的速度与朝向命令。语音转写和 LLM2Vec 条件的独立证据见第二轮。
+
+| 实际阶段 | P50（ms） | P95（ms） |
+| --- | ---: | ---: |
+| ARDY 约束构造、去噪与转换共计 | 81.1 | 122.3 |
+| 其中去噪 | 73.7 | 113.2 |
+| 其中解码和 G1 转换 | 6.2 | 9.2 |
+| CPU SONIC ONNX | 30.8 | 52.8 |
+| 观测构造＋SONIC＋20 个子步 | 37.2 | 66.0 |
+
+T4 峰值张量分配为 1.75 GiB。CPU 两行使用每次运行分位数的中位数，物理步长 1 ms，50 Hz 为仿真控制频率。CPU 控制循环超过 20 ms 的逐次比例中位数为 100%。这些结果分别验证了缓冲因果性与仿真跟踪，真机控制周期需要在部署设备上重新测量。
+
+环境配置时修正了 ARDY 同名资源模块的解析、MuJoCo 入口参数和烟测片段末尾的指令边界。SSH 通道一度锁住，最后通过同一 Colab 会话的文件通道完成 SHA-256 校验交接。归档保留生产版本、接缝跳变、预读可用性、足底净空、接触力、根与关节轨迹、每步推理耗时和失败样本。
+
+[实验报告](assets/ardy/r3/r3-report.md) · [逐次指标 JSON](assets/ardy/r3/r3-summary.json) · [逐次指标 CSV](assets/ardy/r3/r3-trials.csv) · [指令时序 CSV](assets/ardy/r3/r3-events.csv) · [复跑代码](assets/ardy/r3/r3-code.zip) · [旧 H52 足底几何](assets/ardy/r3/r3-prior-geometry.json)
+
 <h2 id="record">复跑与实验数据</h2>
 
 [打开 Colab 复跑笔记本](https://colab.research.google.com/github/approchin/approchin.github.io/blob/main/ardy-assets/ardy-reproduce.ipynb) · [逐次实验指标](assets/ardy/study-data.json) · [代表性轨迹与关节数据](assets/ardy/representative-trajectories.zip)
