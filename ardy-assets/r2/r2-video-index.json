@@ -1,0 +1,74 @@
+[
+  {
+    "file": "r2-p01-text-path-sonic.mp4",
+    "trial": "C_text_path_P01_20261121",
+    "layer": "physics",
+    "prompt": "Walk forward slowly."
+  },
+  {
+    "file": "r2-p02-text-path-sonic.mp4",
+    "trial": "C_text_path_P02_20261121",
+    "layer": "physics",
+    "prompt": "Walk forward while waving your right hand."
+  },
+  {
+    "file": "r2-p03-text-path-sonic.mp4",
+    "trial": "C_text_path_P03_20261121",
+    "layer": "physics",
+    "prompt": "Walk stealthily with small, cautious steps."
+  },
+  {
+    "file": "r2-p04-text-path-sonic.mp4",
+    "trial": "C_text_path_P04_20261121",
+    "layer": "physics",
+    "prompt": "Walk forward while keeping both arms raised."
+  },
+  {
+    "file": "r2-p05-text-path-sonic.mp4",
+    "trial": "C_text_path_P05_20261121",
+    "layer": "physics",
+    "prompt": "Walk forward, then stop and wave your right hand."
+  },
+  {
+    "file": "r2-p06-text-path-sonic.mp4",
+    "trial": "C_text_path_P06_20261121",
+    "layer": "physics",
+    "prompt": "Walk with a limp as if your left leg is injured."
+  },
+  {
+    "file": "r2-p02-text-only.mp4",
+    "trial": "B_text_only_P02_20261121",
+    "layer": "kinematic",
+    "prompt": "Walk forward while waving your right hand."
+  },
+  {
+    "file": "r2-p04-text-only.mp4",
+    "trial": "B_text_only_P04_20261121",
+    "layer": "kinematic",
+    "prompt": "Walk forward while keeping both arms raised."
+  },
+  {
+    "file": "r2-p05-text-only.mp4",
+    "trial": "B_text_only_P05_20261121",
+    "layer": "kinematic",
+    "prompt": "Walk forward, then stop and wave your right hand."
+  },
+  {
+    "file": "r2-p04-path-only.mp4",
+    "trial": "A_path_only_P04_20261121",
+    "layer": "kinematic",
+    "prompt": "Walk forward while keeping both arms raised."
+  },
+  {
+    "file": "r2-large-tracking-error.mp4",
+    "trial": "C_text_path_P03_20261122",
+    "layer": "physics",
+    "prompt": "Walk stealthily with small, cautious steps."
+  },
+  {
+    "file": "r2-p05-spoken-sonic.mp4",
+    "trial": "voice_C_text_path_P05_20261121",
+    "layer": "spoken_physics",
+    "prompt": "Walk forward, then stop and wave your right hand."
+  }
+]

@@ -1,0 +1,65 @@
+{
+  "version": "2026-11-23_r2",
+  "fps": 25,
+  "control_hz": 50,
+  "sim_dt": 0.001,
+  "n_frames": 240,
+  "model_id": "nvidia/ARDY-G1-RP-25FPS-Horizon8",
+  "model_revision": "fb815e8021d700af523ac32d9851b7e489fbb60b",
+  "ardy_revision": "e706e27acc88070918308a10922b8f7174d0825e",
+  "sonic_revision": "6733128a3d8a523b1418b06bca3cdf61c8b0987f",
+  "humantracker_revision": "492f128dc903d1c859d2ff535c549c149f9adda8",
+  "seeds": [
+    20261121,
+    20261122,
+    20261123
+  ],
+  "horizon": 8,
+  "patch": 4,
+  "preview": 52,
+  "history": 100,
+  "diffusion_steps": 4,
+  "cfg": [
+    2,
+    2
+  ],
+  "conditions": [
+    "A_path_only",
+    "B_text_only",
+    "C_text_path"
+  ],
+  "prompts": [
+    {
+      "id": "P01",
+      "text": "Walk forward slowly.",
+      "speed": 0.32
+    },
+    {
+      "id": "P02",
+      "text": "Walk forward while waving your right hand.",
+      "speed": 0.5
+    },
+    {
+      "id": "P03",
+      "text": "Walk stealthily with small, cautious steps.",
+      "speed": 0.26
+    },
+    {
+      "id": "P04",
+      "text": "Walk forward while keeping both arms raised.",
+      "speed": 0.5
+    },
+    {
+      "id": "P05",
+      "text": "Walk forward, then stop and wave your right hand.",
+      "speed": 0.5,
+      "stop_s": 4,
+      "brake_s": 0.48
+    },
+    {
+      "id": "P06",
+      "text": "Walk with a limp as if your left leg is injured.",
+      "speed": 0.4
+    }
+  ]
+}

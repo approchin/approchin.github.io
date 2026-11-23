@@ -104,6 +104,151 @@ H52 的两组参考在前 2 秒较低一侧的脚底标记高度中位数约为 
 
 [全部逐次指标](assets/ardy/sonic-latency-study.json) · [H8 晚到停止轨迹 CSV](assets/ardy/sonic-latency-h8-trace.csv) · [闭环对照代码](assets/ardy/sonic-latency-replay.py)
 
+<h2 id="round2-llm2vec">第二轮 · LLM2Vec 原句驱动的 G1 动作</h2>
+
+六条英文指令分别跑三种输入和三个种子，完成 **54 次主闭环**。另加 **3 次语音闭环**。C 组用上真实文本后，ARDY 的平均目标路径误差仍为 **1.09 cm**。上肢语义的表现随指令而变，其中停走加挥手和双臂抬举给出了不同的结果。
+
+本轮固定官方 ARDY G1 H8、25 Hz、8 帧生成窗、4 帧 Patch 和 52 帧路径前视。沿用上一轮的四步扩散和文本、路径 CFG 权重各 2。SONIC 采用原版 G1 Low-Latency ONNX，控制时钟 50 Hz，MuJoCo 物理步长 1 ms。六条指令各使用三个既有种子，每种输入运行 18 条参考。
+
+A 组只给路径。B 组把原句送入官方 LLM2Vec，空间约束为空。C 组同时接入原句的官方向量和对应路径。P05 的目标先前进，3.52 秒开始减速，4 秒到静止区间。A 与 C 对同一指令使用相同路径。
+
+官方编码器在高内存 CPU 上使用 BF16，并将 FP32 向量及有效掩码传给 T4 的 ARDY。G1 原始参考为 25 Hz。25→50 Hz 使用平移和关节线性插值、WXYZ 四元数 SLERP 和 MuJoCo 的位置差分计算速度。每个控制时刻只能读取当时已到达的参考，未来不足时保持最后可用的姿态。闭环站立与滑动统计使用 MuJoCo 模型中地面与脚部碰撞体的接触。
+
+本次视频展示实际生成关节或 MuJoCo 闭环测得的骨架。手腕高度、脚部接触等数值作为人工评审的定位线索，三项 1–5 分仍留空。
+
+### 同种子文本验证与 CFG
+
+同种子、同样使用 Text Only 的两条烟测指令产生了不同向量，余弦相似度为 **0.769**，对应关节点位置的平均距离为 **0.509 m**。P04 保持相同文本、路径和种子，文本 CFG 从 2 改到 0 时，平均姿态变化 0.126 m。空间 CFG 改到 0 时，变化 0.183 m，目标路径误差从 1.74 cm 增至 12.62 cm。
+
+| 条件 | 条数 | ARDY 目标路径 MAE | SONIC 根轨迹 MAE | 关节 MAE | 航向 MAE |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| A · Path Only | 18 | 1.04 cm | 0.487 m | 4.78° | 1.83° |
+| B · Text Only | 18 | 无预设路径 | 0.288 m | 4.08° | 1.53° |
+| C · Text + Path | 18 | 1.09 cm | 0.391 m | 5.67° | 1.97° |
+
+SONIC 根轨迹 MAE 以上游 ARDY 参考为基准。关节角和根航向在同一 50 Hz 控制时刻比对。
+
+### 停止与上肢动作
+
+P05 是这轮最有区分度的例子。文本组和文本加路径组的右腕波动都在 12 cm 左右，路径组约为 2.7 cm。Text Only 在 5–8 秒仍以约 0.433 m/s 移动。加上允许停车的路径后，末段根速度约为 0.005 m/s，同时保留了右腕运动。
+
+| P05 条件 | 1–3 秒根速度 | 5–8 秒根速度 | 右腕相对肩的运动波动 |
+| --- | ---: | ---: | ---: |
+| A · Path Only | 0.499 m/s | 0.005 m/s | 2.7 cm |
+| B · Text Only | 0.451 m/s | 0.433 m/s | 12.2 cm |
+| C · Text + Path | 0.502 m/s | 0.005 m/s | 12.2 cm |
+
+双臂抬举用「双腕均高于肩部 3 cm」作为定位指标。P04 各组在这个指标上的帧占比都是 0%。3 秒的代表帧中，Text Only 的双臂仍在肩线下方。逐段的语义一致性、自然性和物理执行质量评分留待人工审核。
+
+<figure>
+  <img src="assets/ardy/r2/r2-comparison.png" loading="lazy" alt="三组根轨迹误差、路径误差、双腕高度代理以及停走速度对照">
+  <figcaption>主实验每组 18 条。P04 的双腕高度是人工复查线索，P05 的速度来自 ARDY 参考。</figcaption>
+</figure>
+
+<figure>
+  <video controls playsinline preload="metadata" aria-label="P05 语音输入。视频先播放合成录音，再播放 ARDY 参考和 SONIC 闭环回放。" width="868" height="474"><source src="assets/ardy/r2/r2-p05-spoken-sonic.mp4" type="video/mp4"></video>
+  <figcaption>P05 语音输入。视频先播放合成录音，再播放 ARDY 参考和 SONIC 闭环回放。</figcaption>
+</figure>
+
+三段合成录音先由 Whisper 实际转写，再把得到的原句送进同一 LLM2Vec。ASR 实耗为 1.03–1.87 秒，T4 首块生成和转换为 0.067–0.339 秒。当前跨会话批流程从音频就绪到首块参考为 161.9–163.4 秒，包含跨机会话调度。P05 的转写与书面指令逐字相同，同种子的生成 qpos 逐项最大差为 0。
+
+以骨盆低于 0.35 m 且持续 5 个控制帧为跌倒判据，54 条主实验记录跌倒 0 次。路径执行仍有大偏差的样例。C_text_path_P03_20261122 的 ARDY 目标路径 MAE 为 2.11 cm，SONIC 实际目标路径 MAE 为 0.928 m。
+
+<figure>
+  <video controls playsinline preload="none" aria-label="P03 的路径偏差案例。左边是参考与实际骨架，右边是两条地面轨迹。" width="868" height="474"><source src="assets/ardy/r2/r2-large-tracking-error.mp4" type="video/mp4"></video>
+  <figcaption>P03 的路径偏差案例。左边是参考与实际骨架，右边是两条地面轨迹。</figcaption>
+</figure>
+
+### 六条指令的代表回放
+
+<details>
+<summary>P01 · 慢走</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text + Path，种子 20261121。" width="868" height="474"><source src="assets/ardy/r2/r2-p01-text-path-sonic.mp4" type="video/mp4"></video>
+  <figcaption>Text + Path，种子 20261121。</figcaption>
+</figure>
+
+
+</details>
+
+<details>
+<summary>P02 · 边走边挥右手</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text + Path，种子 20261121。" width="868" height="474"><source src="assets/ardy/r2/r2-p02-text-path-sonic.mp4" type="video/mp4"></video>
+  <figcaption>Text + Path，种子 20261121。</figcaption>
+</figure>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text Only 的运动学对照，同一随机种子。" width="868" height="474"><source src="assets/ardy/r2/r2-p02-text-only.mp4" type="video/mp4"></video>
+  <figcaption>Text Only 的运动学对照，同一随机种子。</figcaption>
+</figure>
+
+</details>
+
+<details>
+<summary>P03 · 小心走小步</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text + Path，种子 20261121。" width="868" height="474"><source src="assets/ardy/r2/r2-p03-text-path-sonic.mp4" type="video/mp4"></video>
+  <figcaption>Text + Path，种子 20261121。</figcaption>
+</figure>
+
+
+</details>
+
+<details>
+<summary>P04 · 走路时双臂抬起</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text + Path，种子 20261121。" width="868" height="474"><source src="assets/ardy/r2/r2-p04-text-path-sonic.mp4" type="video/mp4"></video>
+  <figcaption>Text + Path，种子 20261121。</figcaption>
+</figure>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text Only 的运动学对照，同一随机种子。" width="868" height="474"><source src="assets/ardy/r2/r2-p04-text-only.mp4" type="video/mp4"></video>
+  <figcaption>Text Only 的运动学对照，同一随机种子。</figcaption>
+</figure>
+<figure>
+  <video controls playsinline preload="none" aria-label="Path Only 的运动学基线，同一随机种子。" width="868" height="474"><source src="assets/ardy/r2/r2-p04-path-only.mp4" type="video/mp4"></video>
+  <figcaption>Path Only 的运动学基线，同一随机种子。</figcaption>
+</figure>
+</details>
+
+<details>
+<summary>P05 · 走后停下再挥手</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text + Path，种子 20261121。" width="868" height="474"><source src="assets/ardy/r2/r2-p05-text-path-sonic.mp4" type="video/mp4"></video>
+  <figcaption>Text + Path，种子 20261121。</figcaption>
+</figure>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text Only 的运动学对照，同一随机种子。" width="868" height="474"><source src="assets/ardy/r2/r2-p05-text-only.mp4" type="video/mp4"></video>
+  <figcaption>Text Only 的运动学对照，同一随机种子。</figcaption>
+</figure>
+
+</details>
+
+<details>
+<summary>P06 · 左腿受伤式跛行</summary>
+<figure>
+  <video controls playsinline preload="none" aria-label="Text + Path，种子 20261121。" width="868" height="474"><source src="assets/ardy/r2/r2-p06-text-path-sonic.mp4" type="video/mp4"></video>
+  <figcaption>Text + Path，种子 20261121。</figcaption>
+</figure>
+
+
+</details>
+
+### 脚底、窗口和运行耗时
+
+C 组在第一个 0.32 秒窗口内，参考下侧足点高度的试次中位数为 1.09 cm，随后至第 2 秒为 0.65 cm。Root 的 Y-up 到 Z-up 坐标转换逐帧最大差为 0 m。对 C_text_path_P03_20261122 单独降低初始骨盆 6.35 cm，参考保持相同，首两秒承重接触占比从 99% 变到 96%，根参考跟踪 MAE 从 0.929 m 变到 0.895 m。
+
+C 组的窗边界关节转角步长 P95 为 4.15°，窗内为 3.92°。三组已到播放时刻的当前参考帧耗尽率均为 0，C 组未来槽缺失约为 0.008%。播放时钟为 50 Hz，实测 CPU ONNX 中位耗时已经超过 20 ms 的控制周期。整句在试次开始时输入，在线改口触发重规划和硬实时部署留待验证。
+
+| 条件 | ARDY 生成 P50／P95 | 逆变换与导出 P50／P95 | SONIC ONNX P50／P95 |
+| --- | ---: | ---: | ---: |
+| A · Path Only | 71.5／85.1 ms | 5.5／7.7 ms | 27.6／47.8 ms |
+| B · Text Only | 69.7／79.0 ms | 5.6／7.3 ms | 30.4／53.5 ms |
+| C · Text + Path | 77.9／85.7 ms | 5.8／7.1 ms | 30.3／53.5 ms |
+
+[逐次指标 CSV](assets/ardy/r2/r2-trial-metrics.csv) · [实验配置](assets/ardy/r2/r2-config.json) · [汇总 JSON](assets/ardy/r2/r2-summary.json) · [视频索引](assets/ardy/r2/r2-video-index.json)
+
+官方版本为 ARDY G1 H8、Meta Llama 3 8B Instruct 和其两级 McGill LLM2Vec 适配器，以及 GEAR-SONIC G1 Low-Latency ONNX。Built with Meta Llama 3. [ARDY 固定版本](https://github.com/nv-tlabs/ardy/tree/e706e27acc88070918308a10922b8f7174d0825e) · [LLM2Vec](https://github.com/McGill-NLP/llm2vec) · [SONIC 低延迟权重](https://huggingface.co/nvidia/GEAR-SONIC/tree/6733128a3d8a523b1418b06bca3cdf61c8b0987f/low_latency)
+
 <h2 id="record">复跑与实验数据</h2>
 
 [打开 Colab 复跑笔记本](https://colab.research.google.com/github/approchin/approchin.github.io/blob/main/ardy-assets/ardy-reproduce.ipynb) · [逐次实验指标](assets/ardy/study-data.json) · [代表性轨迹与关节数据](assets/ardy/representative-trajectories.zip)
