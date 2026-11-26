@@ -1,0 +1,181 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1728" height="972" viewBox="0 0 1728 972" role="img" aria-labelledby="svg-title svg-description" xml:lang="zh-CN">
+  <title id="svg-title">图 3  History／Current／Future 怎样进模型</title>
+  <desc id="svg-description">G1 H8 示例 H=25、C=2、F=11 槽位。三个分类的宽度为 148、3440、3312，各投影为 1024。知道的根分量覆写带噪根。当前与未来的显式 Body Goal 都可部分指定。序列示意含 Text 和 Step，固定模型另启用初始航向。</desc>
+  <rect x="0" y="0" width="1728" height="972" rx="0" fill="#FFFFFF" id="canvas" />
+  <g id="figure-heading">
+    <text x="64" y="95" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="47" font-weight="700" text-anchor="start" id="figure-heading-6">History／Current／Future 怎样进模型</text>
+    <line x1="64" y1="123" x2="1664" y2="123" stroke="#D6DDE7" stroke-width="1" stroke-linecap="round" id="figure-heading-9" />
+  </g>
+  <g aria-label="History" id="history-input">
+    <rect x="57.600" y="171.000" width="518.400" height="350" rx="16" fill="#F4EFFB" stroke="#CFC0E7" stroke-width="1.2" id="history-input-11" />
+    <text x="84.000" y="216.000" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="32" font-weight="700" text-anchor="start" id="history-input-12">History</text>
+    <text x="549.600" y="214.000" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="history-input-13"><tspan id="history-input-13-span-1" font-style="italic">H</tspan> = 25 · 100 帧</text>
+    <text x="84.000" y="248.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="start" id="history-input-14">干净的 Hybrid Token</text>
+    <rect x="84.000" y="276.000" width="465.600" height="43" rx="7" fill="#FFFFFF" stroke="#CFC0E7" stroke-width="1.2" id="history-input-15" />
+    <text x="100.800" y="303.960" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" text-anchor="start" id="history-input-16">Global Root</text>
+    <text x="532.800" y="303.960" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="700" text-anchor="end" id="history-input-17">20</text>
+    <rect x="84.000" y="326.000" width="465.600" height="43" rx="7" fill="#FFFFFF" stroke="#CFC0E7" stroke-width="1.2" id="history-input-18" />
+    <text x="100.800" y="353.960" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" text-anchor="start" id="history-input-19">Body latent</text>
+    <text x="532.800" y="353.960" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="700" text-anchor="end" id="history-input-20">128</text>
+    <text x="84.000" y="416.000" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="start" id="history-input-21">4 帧打包为 1 个 Token</text>
+    <line x1="84.000" y1="468.000" x2="549.600" y2="468.000" stroke="#CFC0E7" stroke-width="1" stroke-linecap="round" id="history-input-22" />
+    <text x="84.000" y="499.000" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="history-input-23">每 token 输入宽度</text>
+    <text x="549.600" y="501.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="28" font-weight="700" text-anchor="end" id="history-input-24">148</text>
+  </g>
+  <g aria-label="Current" id="current-input">
+    <rect x="604.800" y="171.000" width="518.400" height="350" rx="16" fill="#EDF7F1" stroke="#A9D5BF" stroke-width="1.2" id="current-input-26" />
+    <text x="631.200" y="216.000" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="32" font-weight="700" text-anchor="start" id="current-input-27">Current</text>
+    <text x="1096.800" y="214.000" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="current-input-28"><tspan id="current-input-28-span-1" font-style="italic">C</tspan> = 2 · 8 帧</text>
+    <text x="631.200" y="248.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="start" id="current-input-29">当前窗的待去噪动作与已知目标</text>
+    <rect x="631.200" y="267.000" width="218.400" height="32" rx="7" fill="#FFFFFF" stroke="#A9D5BF" stroke-width="1.2" id="current-input-30" />
+    <text x="740.400" y="288.100" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="middle" id="current-input-31">带噪 Root ／ 目标</text>
+    <path d="M 852.000,283.000 L 868.584,283.000" fill="none" stroke="#17634C" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" id="current-input-32" />
+    <polygon points="874.800,283.000 866.400,286.710 866.400,279.290" fill="#17634C" id="current-input-33" />
+    <rect x="878.400" y="267.000" width="198.000" height="32" rx="7" fill="#D4EEE0" stroke="#A9D5BF" stroke-width="1.2" id="current-input-34" />
+    <text x="977.400" y="287.760" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" text-anchor="middle" id="current-input-35">Overwrite</text>
+    <rect x="631.200" y="310.000" width="445.200" height="32" rx="7" fill="#FFFFFF" stroke="#A9D5BF" stroke-width="1.2" id="current-input-36" />
+    <text x="648.000" y="331.780" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="current-input-37">带噪 Body latent</text>
+    <text x="1059.600" y="331.780" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="current-input-38">128</text>
+    <rect x="631.200" y="348.000" width="445.200" height="32" rx="7" fill="#FFFFFF" stroke="#A9D5BF" stroke-width="1.2" id="current-input-39" />
+    <text x="648.000" y="369.780" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="current-input-40">覆写后的 Global Root</text>
+    <text x="1059.600" y="369.780" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="current-input-41">20</text>
+    <rect x="631.200" y="386.000" width="445.200" height="32" rx="7" fill="#FFFFFF" stroke="#A9D5BF" stroke-width="1.2" id="current-input-42" />
+    <text x="648.000" y="407.780" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="current-input-43">Body Goal</text>
+    <text x="1059.600" y="407.780" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="current-input-44">1636</text>
+    <rect x="631.200" y="424.000" width="445.200" height="32" rx="7" fill="#FFFFFF" stroke="#A9D5BF" stroke-width="1.2" id="current-input-45" />
+    <text x="648.000" y="445.780" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="current-input-46">Root／Body Mask</text>
+    <text x="1059.600" y="445.780" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="current-input-47">1656</text>
+    <path d="M 1076.400,283.000 L 1094.400,283.000 L 1094.400,364.000 L 1082.928,364.000" fill="none" stroke="#17634C" stroke-width="1.35" stroke-linecap="round" stroke-linejoin="round" id="current-input-48" />
+    <polygon points="1077.600,364.000 1084.800,360.820 1084.800,367.180" fill="#17634C" id="current-input-49" />
+    <line x1="631.200" y1="468.000" x2="1096.800" y2="468.000" stroke="#A9D5BF" stroke-width="1" stroke-linecap="round" id="current-input-50" />
+    <text x="631.200" y="499.000" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="current-input-51">每 token 输入宽度</text>
+    <text x="1096.800" y="501.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="28" font-weight="700" text-anchor="end" id="current-input-52">3440</text>
+    <rect x="831.600" y="393.000" width="25.200" height="17" rx="2" fill="#EDF7F1" stroke="#A9D2BA" stroke-width="1.25" id="review-7" />
+    <line x1="831.600" y1="398.000" x2="837.600" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-8" />
+    <line x1="831.600" y1="405.000" x2="846.000" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-9" />
+    <line x1="834.000" y1="410.000" x2="854.400" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-10" />
+    <line x1="842.400" y1="410.000" x2="856.800" y2="398.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-11" />
+    <line x1="850.800" y1="410.000" x2="856.800" y2="405.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-12" />
+    <rect x="864.000" y="393.000" width="25.200" height="17" rx="2" fill="#D5EDE0" stroke="#A9D2BA" stroke-width="1.25" id="review-13" />
+    <rect x="896.400" y="393.000" width="25.200" height="17" rx="2" fill="#EDF7F1" stroke="#A9D2BA" stroke-width="1.25" id="review-14" />
+    <line x1="896.400" y1="398.000" x2="902.400" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-15" />
+    <line x1="896.400" y1="405.000" x2="910.800" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-16" />
+    <line x1="898.800" y1="410.000" x2="919.200" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-17" />
+    <line x1="907.200" y1="410.000" x2="921.600" y2="398.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-18" />
+    <line x1="915.600" y1="410.000" x2="921.600" y2="405.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-19" />
+    <rect x="928.800" y="393.000" width="25.200" height="17" rx="2" fill="#EDF7F1" stroke="#A9D2BA" stroke-width="1.25" id="review-20" />
+    <line x1="928.800" y1="398.000" x2="934.800" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-21" />
+    <line x1="928.800" y1="405.000" x2="943.200" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-22" />
+    <line x1="931.200" y1="410.000" x2="951.600" y2="393.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-23" />
+    <line x1="939.600" y1="410.000" x2="954.000" y2="398.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-24" />
+    <line x1="948.000" y1="410.000" x2="954.000" y2="405.000" stroke="#A9D2BA" stroke-width="1.2" stroke-linecap="round" id="review-25" />
+  </g>
+  <g aria-label="Future" id="future-input">
+    <rect x="1152.000" y="171.000" width="518.400" height="350" rx="16" fill="#EDF5FD" stroke="#B3CDEA" stroke-width="1.2" id="future-input-54" />
+    <text x="1178.400" y="216.000" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="32" font-weight="700" text-anchor="start" id="future-input-55">Future</text>
+    <text x="1644.000" y="214.000" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="future-input-56"><tspan id="future-input-56-span-1" font-style="italic">F</tspan> = 11 · 窗外 44 帧</text>
+    <text x="1178.400" y="248.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="start" id="future-input-57">生成窗外的稀疏目标</text>
+    <rect x="1178.400" y="276.000" width="465.600" height="43" rx="7" fill="#FFFFFF" stroke="#B3CDEA" stroke-width="1.2" id="future-input-58" />
+    <text x="1195.200" y="303.960" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" text-anchor="start" id="future-input-59">Root Goal</text>
+    <text x="1627.200" y="303.960" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="700" text-anchor="end" id="future-input-60">20</text>
+    <rect x="1381.200" y="288.000" width="25.200" height="19" rx="2" fill="#DCECFB" stroke="#B3CDEA" stroke-width="1.2" id="future-input-61" />
+    <rect x="1413.600" y="288.000" width="25.200" height="19" rx="2" fill="#EDF5FD" stroke="#B3CDEA" stroke-width="1.0" id="future-input-62" />
+    <line x1="1413.600" y1="293.000" x2="1419.600" y2="288.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-63" />
+    <line x1="1413.600" y1="300.000" x2="1428.000" y2="288.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-64" />
+    <line x1="1413.600" y1="307.000" x2="1436.400" y2="288.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-65" />
+    <line x1="1422.000" y1="307.000" x2="1438.800" y2="293.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-66" />
+    <line x1="1430.400" y1="307.000" x2="1438.800" y2="300.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-67" />
+    <rect x="1446.000" y="288.000" width="25.200" height="19" rx="2" fill="#EDF5FD" stroke="#B3CDEA" stroke-width="1.0" id="future-input-68" />
+    <line x1="1446.000" y1="293.000" x2="1452.000" y2="288.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-69" />
+    <line x1="1446.000" y1="300.000" x2="1460.400" y2="288.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-70" />
+    <line x1="1446.000" y1="307.000" x2="1468.800" y2="288.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-71" />
+    <line x1="1454.400" y1="307.000" x2="1471.200" y2="293.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-72" />
+    <line x1="1462.800" y1="307.000" x2="1471.200" y2="300.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-73" />
+    <rect x="1478.400" y="288.000" width="25.200" height="19" rx="2" fill="#DCECFB" stroke="#B3CDEA" stroke-width="1.2" id="future-input-74" />
+    <rect x="1178.400" y="326.000" width="465.600" height="43" rx="7" fill="#FFFFFF" stroke="#B3CDEA" stroke-width="1.2" id="future-input-75" />
+    <text x="1195.200" y="353.960" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" text-anchor="start" id="future-input-76">Body Goal</text>
+    <text x="1627.200" y="353.960" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="700" text-anchor="end" id="future-input-77">1636</text>
+    <rect x="1381.200" y="338.000" width="25.200" height="19" rx="2" fill="#EDF5FD" stroke="#B3CDEA" stroke-width="1.0" id="future-input-78" />
+    <line x1="1381.200" y1="343.000" x2="1387.200" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-79" />
+    <line x1="1381.200" y1="350.000" x2="1395.600" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-80" />
+    <line x1="1381.200" y1="357.000" x2="1404.000" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-81" />
+    <line x1="1389.600" y1="357.000" x2="1406.400" y2="343.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-82" />
+    <line x1="1398.000" y1="357.000" x2="1406.400" y2="350.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-83" />
+    <rect x="1413.600" y="338.000" width="25.200" height="19" rx="2" fill="#EDF5FD" stroke="#B3CDEA" stroke-width="1.0" id="future-input-84" />
+    <line x1="1413.600" y1="343.000" x2="1419.600" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-85" />
+    <line x1="1413.600" y1="350.000" x2="1428.000" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-86" />
+    <line x1="1413.600" y1="357.000" x2="1436.400" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-87" />
+    <line x1="1422.000" y1="357.000" x2="1438.800" y2="343.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-88" />
+    <line x1="1430.400" y1="357.000" x2="1438.800" y2="350.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-89" />
+    <rect x="1446.000" y="338.000" width="25.200" height="19" rx="2" fill="#DCECFB" stroke="#B3CDEA" stroke-width="1.2" id="future-input-90" />
+    <rect x="1478.400" y="338.000" width="25.200" height="19" rx="2" fill="#EDF5FD" stroke="#B3CDEA" stroke-width="1.0" id="future-input-91" />
+    <line x1="1478.400" y1="343.000" x2="1484.400" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-92" />
+    <line x1="1478.400" y1="350.000" x2="1492.800" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-93" />
+    <line x1="1478.400" y1="357.000" x2="1501.200" y2="338.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-94" />
+    <line x1="1486.800" y1="357.000" x2="1503.600" y2="343.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-95" />
+    <line x1="1495.200" y1="357.000" x2="1503.600" y2="350.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-96" />
+    <rect x="1178.400" y="376.000" width="465.600" height="43" rx="7" fill="#FFFFFF" stroke="#B3CDEA" stroke-width="1.2" id="future-input-97" />
+    <text x="1195.200" y="403.960" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" text-anchor="start" id="future-input-98">Root／Body Mask</text>
+    <text x="1627.200" y="403.960" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="700" text-anchor="end" id="future-input-99">1656</text>
+    <rect x="1178.400" y="434.000" width="31.200" height="17" rx="2" fill="#EDF5FD" stroke="#B3CDEA" stroke-width="1.0" id="future-input-100" />
+    <line x1="1178.400" y1="439.000" x2="1184.400" y2="434.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-101" />
+    <line x1="1178.400" y1="446.000" x2="1192.800" y2="434.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-102" />
+    <line x1="1180.800" y1="451.000" x2="1201.200" y2="434.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-103" />
+    <line x1="1189.200" y1="451.000" x2="1209.600" y2="434.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-104" />
+    <line x1="1197.600" y1="451.000" x2="1209.600" y2="441.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-105" />
+    <line x1="1206.000" y1="451.000" x2="1209.600" y2="448.000" stroke="#B3CDEA" stroke-width="1.1" stroke-linecap="round" id="future-input-106" />
+    <text x="1221.600" y="448.000" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="future-input-107">未指定分量</text>
+    <line x1="1178.400" y1="468.000" x2="1644.000" y2="468.000" stroke="#B3CDEA" stroke-width="1" stroke-linecap="round" id="future-input-108" />
+    <text x="1178.400" y="499.000" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="400" text-anchor="start" id="future-input-109">每 token 输入宽度</text>
+    <text x="1644.000" y="501.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="28" font-weight="700" text-anchor="end" id="future-input-110">3312</text>
+  </g>
+  <g aria-label="三路 Linear 投影" id="linear-projections">
+    <path d="M 316.800,522.000 L 316.800,545.080" fill="none" stroke="#593B86" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" id="linear-projections-112" />
+    <polygon points="316.800,551.000 311.712,543.000 321.888,543.000" fill="#593B86" id="linear-projections-113" />
+    <rect x="79.200" y="552.000" width="475.200" height="58" rx="10" fill="#FFFFFF" stroke="#CFC0E7" stroke-width="1.2" id="linear-projections-114" />
+    <text x="99.600" y="589.000" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" text-anchor="start" id="linear-projections-115">Linear</text>
+    <text x="532.800" y="589.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" text-anchor="end" id="linear-projections-116"><tspan id="linear-projections-116-span-1" font-style="italic">H</tspan> × 148 → <tspan id="linear-projections-116-span-2" font-style="italic">H</tspan> × 1024</text>
+    <path d="M 864.000,522.000 L 864.000,545.080" fill="none" stroke="#17634C" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" id="linear-projections-117" />
+    <polygon points="864.000,551.000 858.912,543.000 869.088,543.000" fill="#17634C" id="linear-projections-118" />
+    <rect x="626.400" y="552.000" width="475.200" height="58" rx="10" fill="#FFFFFF" stroke="#A9D5BF" stroke-width="1.2" id="linear-projections-119" />
+    <text x="646.800" y="589.000" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" text-anchor="start" id="linear-projections-120">Linear</text>
+    <text x="1080.000" y="589.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" text-anchor="end" id="linear-projections-121"><tspan id="linear-projections-121-span-1" font-style="italic">C</tspan> × 3440 → <tspan id="linear-projections-121-span-2" font-style="italic">C</tspan> × 1024</text>
+    <path d="M 1411.200,522.000 L 1411.200,545.080" fill="none" stroke="#255887" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" id="linear-projections-122" />
+    <polygon points="1411.200,551.000 1406.112,543.000 1416.288,543.000" fill="#255887" id="linear-projections-123" />
+    <rect x="1173.600" y="552.000" width="475.200" height="58" rx="10" fill="#FFFFFF" stroke="#B3CDEA" stroke-width="1.2" id="linear-projections-124" />
+    <text x="1194.000" y="589.000" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" text-anchor="start" id="linear-projections-125">Linear</text>
+    <text x="1627.200" y="589.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" text-anchor="end" id="linear-projections-126"><tspan id="linear-projections-126-span-1" font-style="italic">F</tspan> × 3312 → <tspan id="linear-projections-126-span-2" font-style="italic">F</tspan> × 1024</text>
+    <path d="M 316.800,611.000 L 375.408,664.450" fill="none" stroke="#573C82" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-1" />
+    <polygon points="380.400,669.000 377.748,660.180 370.092,666.010" fill="#573C82" stroke-linejoin="round" id="review-2" />
+    <path d="M 864.000,611.000 L 864.000,662.840" fill="none" stroke="#155E48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-3" />
+    <polygon points="864.000,669.000 869.184,661.000 858.816,661.000" fill="#155E48" stroke-linejoin="round" id="review-4" />
+    <path d="M 1411.200,611.000 L 1411.200,662.840" fill="none" stroke="#245587" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-5" />
+    <polygon points="1411.200,669.000 1416.384,661.000 1406.016,661.000" fill="#245587" stroke-linejoin="round" id="review-6" />
+  </g>
+  <g aria-label="投影后的 token 序列" id="transformer-sequence">
+    <rect x="57.600" y="672.000" width="1612.800" height="151" rx="15" fill="#F8FAFC" stroke="#D6DDE7" stroke-width="1.2" id="transformer-sequence-134" />
+    <text x="86.400" y="707.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" text-anchor="start" id="transformer-sequence-135">按 Token 顺序排开</text>
+    <text x="1219.200" y="706.000" fill="#4D5E72" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="end" id="transformer-sequence-136">双前缀示意</text>
+    <text x="1641.600" y="707.000" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="24" font-weight="700" text-anchor="end" id="transformer-sequence-137"><tspan id="transformer-sequence-137-span-1" font-style="italic">B</tspan> × (<tspan id="transformer-sequence-137-span-2" font-style="italic">H</tspan> + <tspan id="transformer-sequence-137-span-3" font-style="italic">C</tspan> + <tspan id="transformer-sequence-137-span-4" font-style="italic">F</tspan> + 2) × 1024</text>
+    <rect x="86.400" y="730.000" width="117.600" height="50" rx="7" fill="#F7E1C5" stroke="#E7C69F" stroke-width="1.2" id="transformer-sequence-138" />
+    <text x="145.200" y="761.460" fill="#854819" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.4" font-weight="400" text-anchor="middle" id="transformer-sequence-139">Text</text>
+    <rect x="217.200" y="730.000" width="117.600" height="50" rx="7" fill="#F7E1C5" stroke="#E7C69F" stroke-width="1.2" id="transformer-sequence-140" />
+    <text x="276.000" y="761.460" fill="#854819" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.4" font-weight="400" text-anchor="middle" id="transformer-sequence-141">Step <tspan id="transformer-sequence-141-span-1" font-style="italic">k</tspan></text>
+    <rect x="349.200" y="730.000" width="343.200" height="50" rx="7" fill="#E7DCF6" stroke="#CFC0E7" stroke-width="1.2" id="transformer-sequence-142" />
+    <text x="520.800" y="761.800" fill="#593B86" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="middle" id="transformer-sequence-143">History</text>
+    <rect x="706.800" y="730.000" width="199.200" height="50" rx="7" fill="#D4EEE0" stroke="#A9D5BF" stroke-width="1.2" id="transformer-sequence-144" />
+    <text x="806.400" y="761.800" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="middle" id="transformer-sequence-145">Current 1</text>
+    <rect x="913.200" y="730.000" width="199.200" height="50" rx="7" fill="#D4EEE0" stroke="#A9D5BF" stroke-width="1.2" id="transformer-sequence-146" />
+    <text x="1012.800" y="761.800" fill="#17634C" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="middle" id="transformer-sequence-147">Current 2</text>
+    <rect x="1126.800" y="730.000" width="445.200" height="50" rx="7" fill="#DCECFB" stroke="#B3CDEA" stroke-width="1.2" id="transformer-sequence-148" />
+    <text x="1350.000" y="761.800" fill="#255887" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="400" text-anchor="middle" id="transformer-sequence-149">Future</text>
+    <text x="145.200" y="802.000" fill="#4D5E72" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="middle" id="transformer-sequence-150">1</text>
+    <text x="276.000" y="802.000" fill="#4D5E72" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="middle" id="transformer-sequence-151">1</text>
+    <text x="520.800" y="802.000" fill="#4D5E72" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="middle" id="transformer-sequence-152"><tspan id="transformer-sequence-152-span-1" font-style="italic">H</tspan></text>
+    <text x="909.600" y="802.000" fill="#4D5E72" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="middle" id="transformer-sequence-153"><tspan id="transformer-sequence-153-span-1" font-style="italic">C</tspan> = 2</text>
+    <text x="1350.000" y="802.000" fill="#4D5E72" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" text-anchor="middle" id="transformer-sequence-154"><tspan id="transformer-sequence-154-span-1" font-style="italic">F</tspan></text>
+    <path d="M 1582.800,730.000 L 1592.400,730.000 L 1598.400,735.000 L 1598.400,751.000 L 1605.600,757.000 L 1598.400,763.000 L 1598.400,779.000 L 1592.400,784.000 L 1582.800,784.000" fill="none" stroke="#344A61" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" id="review-26" />
+    <text x="1610.400" y="764.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.5" font-weight="700" fill="#344A61" id="review-27">1024</text>
+  </g>
+</svg>

@@ -1,0 +1,106 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1728" height="972" viewBox="0 0 1728 972" role="img" aria-labelledby="svg-title svg-description" xml:lang="zh-CN">
+  <title id="svg-title">Stage 1 · Body 编码与 Global Root 拼接</title>
+  <desc id="svg-description">四帧的 Body 经过因果 Encoder 得到 128 维，FSQ 量化并与 20 维全局根组成 Hybrid Token。解码时沿独立的 Global Root 直通线，分支转换 Local Root 并与 Body latent 一起还原显式运动。</desc>
+  <rect x="0" y="0" width="1728" height="972" rx="0" fill="#FFFFFF" id="wide-3" />
+  <text x="64" y="95" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="47" fill="#15283A" font-weight="700" text-anchor="start" id="wide-4">Stage 1 · Body 编码与 Global Root 拼接</text>
+  <line x1="64" y1="123" x2="1664" y2="123" stroke="#D9E2ED" stroke-width="1" stroke-linecap="round" id="wide-5" />
+  <rect x="64" y="164" width="1600" height="309" rx="14" fill="#F5F8FC" stroke="#CBD9E6" stroke-width="1.35" id="wide-6" />
+  <text x="88" y="206" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="28" fill="#15283A" font-weight="700" text-anchor="start" id="wide-7">编码</text>
+  <rect x="88" y="232" width="226" height="200" rx="14" fill="#F5F0FB" stroke="#D1C2E6" stroke-width="1.35" id="wide-8" />
+  <text x="107" y="265" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="26" fill="#553784" font-weight="700" text-anchor="start" id="wide-9">4 帧显式动作</text>
+  <text x="107" y="299" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="25" fill="#15283A" font-weight="700" text-anchor="start" id="wide-10">4 × 414</text>
+  <rect x="99" y="324" width="39" height="73" rx="6" fill="#FFFFFF" stroke="#D1C2E6" stroke-width="1.35" id="wide-11" />
+  <circle cx="118" cy="338" r="4" fill="#553784" id="wide-12" />
+  <path d="M 118,343 L 118,368" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-13" />
+  <path d="M 107,355 L 118,350 L 131,349" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-14" />
+  <path d="M 103,379 L 118,368 L 129,382" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-15" />
+  <rect x="150" y="324" width="39" height="73" rx="6" fill="#FFFFFF" stroke="#D1C2E6" stroke-width="1.35" id="wide-16" />
+  <circle cx="169" cy="338" r="4" fill="#553784" id="wide-17" />
+  <path d="M 169,343 L 169,368" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-18" />
+  <path d="M 162,352 L 169,350 L 184,358" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-19" />
+  <path d="M 164,382 L 169,368 L 185,381" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-20" />
+  <rect x="201" y="324" width="39" height="73" rx="6" fill="#FFFFFF" stroke="#D1C2E6" stroke-width="1.35" id="wide-21" />
+  <circle cx="220" cy="338" r="4" fill="#553784" id="wide-22" />
+  <path d="M 220,343 L 220,368" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-23" />
+  <path d="M 206,355 L 220,350 L 232,355" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-24" />
+  <path d="M 206,383 L 220,368 L 229,377" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-25" />
+  <rect x="252" y="324" width="39" height="73" rx="6" fill="#FFFFFF" stroke="#D1C2E6" stroke-width="1.35" id="wide-26" />
+  <circle cx="271" cy="338" r="4" fill="#553784" id="wide-27" />
+  <path d="M 271,343 L 271,368" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-28" />
+  <path d="M 262,360 L 271,350 L 284,350" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-29" />
+  <path d="M 265,380 L 271,368 L 288,382" fill="none" stroke="#553784" stroke-width="1.7" stroke-linejoin="round" stroke-linecap="round" id="wide-30" />
+  <text x="106" y="420" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#485D73" font-weight="700" text-anchor="start" id="wide-31">1 个 Patch</text>
+  <path d="M 315,336 L 339,336 L 339,267 L 354.98,267" fill="none" stroke="#4F677F" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-32" />
+  <polygon points="362,267 353,262.14 353,271.86" fill="#4F677F" stroke-linejoin="round" id="wide-33" />
+  <path d="M 339,336 L 339,385 L 354.98,385" fill="none" stroke="#4F677F" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-34" />
+  <polygon points="362,385 353,380.14 353,389.86" fill="#4F677F" stroke-linejoin="round" id="wide-35" />
+  <circle cx="339" cy="336" r="3.4" fill="#4F677F" id="wide-36" />
+  <rect x="365" y="230" width="253" height="79" rx="14" fill="#F5F8FC" stroke="#CBD9E6" stroke-width="1.35" id="wide-37" />
+  <text x="382" y="259" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23" fill="#15283A" font-weight="700" text-anchor="start" id="wide-38">Global Root</text>
+  <text x="382" y="289" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23" fill="#15283A" font-weight="700" text-anchor="start" id="wide-39">4 × 5 = 20</text>
+  <rect x="365" y="345" width="229" height="83" rx="14" fill="#EEF8F2" stroke="#ABD1BA" stroke-width="1.35" id="wide-40" />
+  <text x="382" y="376" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23" fill="#155F48" font-weight="700" text-anchor="start" id="wide-41">Body</text>
+  <text x="382" y="408" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22" fill="#15283A" font-weight="700" text-anchor="start" id="wide-42">4 × 409 = 1636</text>
+  <path d="M 595,385 L 635.98,385" fill="none" stroke="#155F48" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-43" />
+  <polygon points="643,385 634,380.14 634,389.86" fill="#155F48" stroke-linejoin="round" id="wide-44" />
+  <rect x="646" y="345" width="219" height="83" rx="8" fill="#FFFFFF" stroke="#ABD1BA" stroke-width="1.35" id="wide-45" />
+  <text x="755.5" y="383.5" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-46">因果 Encoder</text>
+  <text x="755.5" y="411.5" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#485D73" font-weight="400" text-anchor="middle" id="wide-47">512 隐层</text>
+  <path d="M 867,385 L 929.98,385" fill="none" stroke="#155F48" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-48" />
+  <polygon points="937,385 928,380.14 928,389.86" fill="#155F48" stroke-linejoin="round" id="wide-49" />
+  <text x="900" y="364" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19" fill="#485D73" font-weight="700" text-anchor="middle" id="wide-50">128</text>
+  <rect x="940" y="354" width="96" height="64" rx="8" fill="#D8EFE3" stroke="#ABD1BA" stroke-width="1.35" id="wide-51" />
+  <text x="988.0" y="393.48" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-52">FSQ</text>
+  <path d="M 1038,385 L 1069.98,385" fill="none" stroke="#155F48" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-53" />
+  <polygon points="1077,385 1068,380.14 1068,389.86" fill="#155F48" stroke-linejoin="round" id="wide-54" />
+  <rect x="1080" y="354" width="174" height="64" rx="8" fill="#D8EFE3" stroke="#ABD1BA" stroke-width="1.35" id="wide-55" />
+  <text x="1167.0" y="392.8" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-56">128 维 latent</text>
+  <rect x="1294" y="225" width="346" height="226" rx="14" fill="#EEF8F2" stroke="#ABD1BA" stroke-width="1.35" id="wide-57" />
+  <text x="1314" y="262" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="24" fill="#155F48" font-weight="700" text-anchor="start" id="wide-58">Hybrid Token</text>
+  <rect x="1320" y="299" width="116" height="62" rx="5" fill="#FFFFFF" stroke="#CBD9E6" stroke-width="1.35" id="wide-59" />
+  <rect x="1436" y="299" width="177" height="62" rx="5" fill="#D8EFE3" stroke="#ABD1BA" stroke-width="1.35" id="wide-60" />
+  <text x="1378" y="337" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22" fill="#15283A" font-weight="700" text-anchor="middle" id="wide-61">Root 20</text>
+  <text x="1524" y="337" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-62">Body 128</text>
+  <path d="M 620,280 L 1378,280 L 1378,288.98" fill="none" stroke="#4F677F" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-63" />
+  <polygon points="1378,296 1382.86,287 1373.14,287" fill="#4F677F" stroke-linejoin="round" id="wide-64" />
+  <text x="947" y="263" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#485D73" font-weight="400" text-anchor="middle" id="wide-65">沿 Patch 展平，保留显式特征</text>
+  <path d="M 1255,385 L 1524,385 L 1524,370.02" fill="none" stroke="#155F48" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-66" />
+  <polygon points="1524,363 1519.14,372 1528.86,372" fill="#155F48" stroke-linejoin="round" id="wide-67" />
+  <path d="M 1322,402 L 1322,409 L 1611,409 L 1611,402" fill="none" stroke="#155F48" stroke-width="1.6" stroke-linejoin="round" stroke-linecap="round" id="wide-68" />
+  <text x="1466.5" y="438" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-69">148 维 · 沿特征轴拼接</text>
+  <rect x="64" y="513" width="1600" height="382" rx="14" fill="#F5F8FC" stroke="#CBD9E6" stroke-width="1.35" id="wide-70" />
+  <text x="88" y="556" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="28" fill="#15283A" font-weight="700" text-anchor="start" id="wide-71">解码</text>
+  <rect x="88" y="604" width="252" height="237" rx="14" fill="#EEF8F2" stroke="#ABD1BA" stroke-width="1.35" id="wide-72" />
+  <text x="108" y="642" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.5" fill="#155F48" font-weight="700" text-anchor="start" id="wide-73">同一枚 Hybrid Token</text>
+  <rect x="107" y="663" width="215" height="48" rx="8" fill="#FFFFFF" stroke="#CBD9E6" stroke-width="1.35" id="wide-74" />
+  <text x="214.5" y="693.8" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#344B64" font-weight="700" text-anchor="middle" id="wide-75">Global Root 20</text>
+  <rect x="107" y="786" width="215" height="44" rx="8" fill="#D8EFE3" stroke="#ABD1BA" stroke-width="1.35" id="wide-76" />
+  <text x="214.5" y="814.8" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-77">Body latent 128</text>
+  <path d="M 322,687 L 1315.98,687" fill="none" stroke="#4F677F" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-78" />
+  <polygon points="1323,687 1314,682.14 1314,691.86" fill="#4F677F" stroke-linejoin="round" id="wide-79" />
+  <text x="862" y="669" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#485D73" font-weight="700" text-anchor="middle" id="wide-80">Global Root 20 维直通</text>
+  <circle cx="481" cy="687" r="4.3" fill="#4F677F" id="wide-81" />
+  <path d="M 481,688 L 481,717.98" fill="none" stroke="#4F677F" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-82" />
+  <polygon points="481,725 485.86,716 476.14,716" fill="#4F677F" stroke-linejoin="round" id="wide-83" />
+  <rect x="376" y="728" width="210" height="62" rx="8" fill="#FFFFFF" stroke="#CBD9E6" stroke-width="1.35" id="wide-84" />
+  <text x="481.0" y="756.0" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#344B64" font-weight="700" text-anchor="middle" id="wide-85">Global → Local Root</text>
+  <text x="481.0" y="784.0" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19" fill="#485D73" font-weight="400" text-anchor="middle" id="wide-86">16 维／Patch</text>
+  <path d="M 587,758 L 707.98,758" fill="none" stroke="#4F677F" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-87" />
+  <polygon points="715,758 706,753.14 706,762.86" fill="#4F677F" stroke-linejoin="round" id="wide-88" />
+  <path d="M 324,808 L 707.98,808" fill="none" stroke="#155F48" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-89" />
+  <polygon points="715,808 706,803.14 706,812.86" fill="#155F48" stroke-linejoin="round" id="wide-90" />
+  <rect x="718" y="728" width="254" height="92" rx="8" fill="#FFFFFF" stroke="#ABD1BA" stroke-width="1.35" id="wide-91" />
+  <text x="845.0" y="771.0" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-92">因果 Body Decoder</text>
+  <text x="845.0" y="799.0" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#485D73" font-weight="400" text-anchor="middle" id="wide-93">Local Root ＋ latent</text>
+  <path d="M 974,775 L 992.98,775" fill="none" stroke="#155F48" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-94" />
+  <polygon points="1000,775 991,770.14 991,779.86" fill="#155F48" stroke-linejoin="round" id="wide-95" />
+  <rect x="1003" y="744" width="241" height="62" rx="8" fill="#D8EFE3" stroke="#ABD1BA" stroke-width="1.35" id="wide-96" />
+  <text x="1123.5" y="782.14" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21" fill="#155F48" font-weight="700" text-anchor="middle" id="wide-97">重建 Body 4 × 409</text>
+  <path d="M 1245,775 L 1315.98,775" fill="none" stroke="#155F48" stroke-width="1.85" stroke-linejoin="round" stroke-linecap="round" id="wide-98" />
+  <polygon points="1323,775 1314,770.14 1314,779.86" fill="#155F48" stroke-linejoin="round" id="wide-99" />
+  <rect x="1326" y="643" width="313" height="185" rx="14" fill="#D8EFE3" stroke="#ABD1BA" stroke-width="1.35" id="wide-100" />
+  <text x="1349" y="711" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="26" fill="#155F48" font-weight="700" text-anchor="start" id="wide-101">4 帧显式动作</text>
+  <text x="1349" y="760" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="25" fill="#15283A" font-weight="700" text-anchor="start" id="wide-102">4 × 414</text>
+  <text x="1349" y="795" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20" fill="#485D73" font-weight="700" text-anchor="start" id="wide-103">Global Root ＋ Body</text>
+</svg>

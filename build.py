@@ -155,6 +155,9 @@ def build_ardy():
     write_page(DIST / "ardy" / "index.html", {
         "ARTICLE": render_article("ardy-article.md", "ARDY 语音指令和 G1 实验结果", "../"),
     }, template="ardy-page.html")
+    write_page(DIST / "ardy" / "notes" / "index.html", {
+        "ARTICLE": render_article("ardy-notes.md", "ARDY 动作特征与模型输入", "../../"),
+    }, template="ardy-notes-page.html")
 
 
 def build_catalog():

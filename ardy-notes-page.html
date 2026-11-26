@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="用五张原理图读懂 ARDY。以宇树 G1 H8 为例，串起混合动作 Token、跨窗空间条件、Root 与 Body 去噪和在线重规划。">
+  <meta name="theme-color" content="#f3f6f5">
+  <title>ARDY 技术笔记 · 两枚 Token 怎样续写 8 帧动作</title>
+  <link rel="canonical" href="https://approchin.github.io/ardy/notes/">
+  <link rel="icon" type="image/svg+xml" href="../../assets/mark.svg">
+  <link rel="stylesheet" href="../../assets/katex/katex.min.css">
+  <link rel="stylesheet" href="../../assets/article.css">
+  <script defer src="../../assets/katex/katex.min.js"></script>
+  <script defer src="../../assets/katex/auto-render.min.js"></script>
+  <style>
+    .ardy-notes .article-open { padding-block: clamp(1.95rem, 4.1vw, 3.5rem) clamp(1.25rem, 2.7vw, 2.45rem); }
+    .ardy-notes .article-open h1 { max-width: 18em; font-size: clamp(2.05rem, 4.35vw, 3.75rem); line-height: 1.16; letter-spacing: -.018em; text-wrap: balance; }
+    .ardy-notes .article-open .title-phrase { white-space: nowrap; color: inherit; }
+    .ardy-notes #overview { margin-top: clamp(1.65rem, 4.2vw, 3rem); }
+    .ardy-notes .story > .note-figure { grid-column: 1 / -1; margin: 1.2rem 0 1.65rem; }
+    .ardy-notes .note-figure a { display: block; border: 1px solid #cfdad4; border-radius: .4rem; overflow: hidden; }
+    .ardy-notes .note-figure a:focus-visible { outline: 3px solid #246954; outline-offset: 4px; }
+    .ardy-notes .note-figure img { display: block; width: 100%; height: auto; background: #fff; }
+    .ardy-notes .note-figure figcaption { margin-top: .55rem; color: #3d514a; font-size: .97rem; line-height: 1.68; }
+    .ardy-notes .note-figure figcaption strong { white-space: nowrap; color: #172b25; }
+    .ardy-notes .story .arithmatex { max-width: 100%; }
+    .ardy-notes .story div.arithmatex { overflow-x: auto; }
+    .ardy-notes .story :is(th, td):nth-child(2) { text-align: left; white-space: normal; }
+    .ardy-notes .article-nav { position: static; }
+    .ardy-notes .article-nav-inner { display: flex; flex-wrap: wrap; }
+    @media (max-width: 600px) {
+      .ardy-notes .article-open h1 { letter-spacing: normal; }
+      .ardy-notes .note-figure figcaption { font-size: .95rem; }
+    }
+  </style>
+</head>
+<body class="ardy-notes">
+  <a class="skip" href="#content">跳到正文</a>
+  <header class="masthead">
+    <div class="frame masthead-inner">
+      <a href="../" class="site-id" aria-label="返回 ARDY 项目页">
+        <img class="site-mark" src="../../assets/mark.svg" width="26" height="26" alt="">
+        ARDY 项目页
+      </a>
+      <div class="masthead-links"><a class="masthead-link" href="../../">项目目录</a></div>
+    </div>
+  </header>
+  <main id="content">
+    <article>
+      <header class="article-open frame" id="top">
+        <h1>ARDY 怎样用<span class="title-phrase">两枚 Token</span> 续写 8 帧动作</h1>
+        <p class="article-deck">技术笔记 · <time datetime="2026-11-26">2026 年 11 月 26 日</time></p>
+      </header>
+      <nav class="article-nav" aria-label="本文目录">
+        <div class="frame article-nav-inner">
+          <a href="#overview">生成总览</a>
+          <a href="#tokenizer">动作编码</a>
+          <a href="#conditioning">空间条件</a>
+          <a href="#denoising">两阶段去噪</a>
+          <a href="#replanning">在线重规划</a>
+        </div>
+      </nav>
+      <div class="frame story" id="note-story">
+        {{ARTICLE}}
+      </div>
+    </article>
+  </main>
+  <footer class="frame page-end">
+    <p><a href="../">ARDY 复现与跟踪实验</a></p>
+    <p><a href="https://arxiv.org/abs/2607.08741">论文</a><span class="foot-dot"> · </span><a href="https://github.com/nv-tlabs/ardy">官方源码</a></p>
+  </footer>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      if (typeof renderMathInElement !== 'function') return;
+      renderMathInElement(document.getElementById('note-story'), {
+        delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}],
+        throwOnError: false
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='utf-8'?>
+<svg xmlns="http://www.w3.org/2000/svg" width="1728" height="972" viewBox="0 0 1728 972" role="img" aria-labelledby="svg-title svg-description" xml:lang="zh-CN">
+  <title id="svg-title">图 1  ARDY 总览</title>
+  <desc id="svg-description">History、Current、Future、Text 与 Step 形成统一宽度的序列。Stage 1 把已有动作编码为 Hybrid Token。Stage 2 使用 Root 和 Body Transformer 生成当前窗，解码后进入后续历史。</desc>
+  <rect x="0" y="0" width="1728" height="972" rx="0" fill="#FFFFFF" id="canvas" />
+  <g id="figure-heading">
+    <text x="64" y="95" fill="#142538" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="47" font-weight="700" text-anchor="start" id="figure-heading-6">ARDY 总览</text>
+    <line x1="64" y1="123" x2="1664" y2="123" stroke="#D6DDE7" stroke-width="1" stroke-linecap="round" id="figure-heading-9" />
+  </g>
+  <g aria-label="输入与投影" id="review-1">
+    <text x="63.600" y="203.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="29" font-weight="700" fill="#142537" id="review-2">输入</text>
+    <text x="651.600" y="202.000" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="29" font-weight="700" fill="#4B5D70" id="review-3">投影／嵌入</text>
+    <rect x="63.600" y="233.000" width="415.200" height="92" rx="13" fill="#F5F0FB" stroke="#CFBFE7" stroke-width="1.25" id="review-4" />
+    <text x="85.200" y="267.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#573C82" id="review-5">History · Hybrid Token</text>
+    <text x="85.200" y="299.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" fill="#573C82" id="review-6">已有动作 → 编码与拼接</text>
+    <text x="459.600" y="299.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="700" fill="#142537" id="review-7"><tspan id="review-7-span-1" font-style="italic">H</tspan> × 148</text>
+    <path d="M 480.000,279.000 L 509.532,279.000" fill="none" stroke="#573C82" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-8" />
+    <polygon points="516.000,279.000 507.600,275.220 507.600,282.780" fill="#573C82" stroke-linejoin="round" id="review-9" />
+    <rect x="520.800" y="247.000" width="249.600" height="64" rx="8" fill="#FFFFFF" stroke="#CFBFE7" stroke-width="1.25" id="review-10" />
+    <text x="540.000" y="274.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#573C82" id="review-11">Linear</text>
+    <text x="751.200" y="300.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" fill="#142537" id="review-12"><tspan id="review-12-span-1" font-style="italic">H</tspan> × 1024</text>
+    <rect x="63.600" y="379.000" width="415.200" height="86" rx="13" fill="#EDF7F1" stroke="#A9D2BA" stroke-width="1.25" id="review-13" />
+    <text x="85.200" y="413.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#155E48" id="review-14">Current · 带噪 Hybrid</text>
+    <text x="85.200" y="445.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" fill="#155E48" id="review-15">Overwrite &amp; Concat</text>
+    <text x="459.600" y="445.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="700" fill="#142537" id="review-16"><tspan id="review-16-span-1" font-style="italic">C</tspan> × 3440</text>
+    <path d="M 480.000,422.000 L 509.532,422.000" fill="none" stroke="#155E48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-17" />
+    <polygon points="516.000,422.000 507.600,418.220 507.600,425.780" fill="#155E48" stroke-linejoin="round" id="review-18" />
+    <rect x="520.800" y="390.000" width="249.600" height="64" rx="8" fill="#FFFFFF" stroke="#A9D2BA" stroke-width="1.25" id="review-19" />
+    <text x="540.000" y="417.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#155E48" id="review-20">Linear</text>
+    <text x="751.200" y="443.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" fill="#142537" id="review-21"><tspan id="review-21-span-1" font-style="italic">C</tspan> × 1024</text>
+    <rect x="63.600" y="481.000" width="415.200" height="86" rx="13" fill="#EBF4FC" stroke="#B1CCEB" stroke-width="1.25" id="review-22" />
+    <text x="85.200" y="515.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#245587" id="review-23">Future · 目标 Token</text>
+    <text x="85.200" y="547.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" fill="#245587" id="review-24">Future Spatial Constraints</text>
+    <text x="459.600" y="515.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="700" fill="#142537" id="review-25"><tspan id="review-25-span-1" font-style="italic">F</tspan> × 3312</text>
+    <path d="M 480.000,524.000 L 509.532,524.000" fill="none" stroke="#245587" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-26" />
+    <polygon points="516.000,524.000 507.600,520.220 507.600,527.780" fill="#245587" stroke-linejoin="round" id="review-27" />
+    <rect x="520.800" y="492.000" width="249.600" height="64" rx="8" fill="#FFFFFF" stroke="#B1CCEB" stroke-width="1.25" id="review-28" />
+    <text x="540.000" y="519.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#245587" id="review-29">Linear</text>
+    <text x="751.200" y="545.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" fill="#142537" id="review-30"><tspan id="review-30-span-1" font-style="italic">F</tspan> × 1024</text>
+    <rect x="63.600" y="583.000" width="415.200" height="70" rx="13" fill="#FCF3E7" stroke="#E8C49E" stroke-width="1.25" id="review-31" />
+    <text x="85.200" y="612.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#884C1D" id="review-32">Text</text>
+    <text x="85.200" y="638.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" fill="#884C1D" id="review-33">LLM2Vec · “向前走”</text>
+    <text x="459.600" y="638.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="700" fill="#142537" id="review-34">1 × 4096</text>
+    <path d="M 480.000,618.000 L 509.532,618.000" fill="none" stroke="#884C1D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-35" />
+    <polygon points="516.000,618.000 507.600,614.220 507.600,621.780" fill="#884C1D" stroke-linejoin="round" id="review-36" />
+    <rect x="520.800" y="586.000" width="249.600" height="64" rx="8" fill="#FFFFFF" stroke="#E8C49E" stroke-width="1.25" id="review-37" />
+    <text x="540.000" y="613.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#884C1D" id="review-38">文本投影</text>
+    <text x="751.200" y="639.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" fill="#142537" id="review-39">1 × 1024</text>
+    <rect x="63.600" y="669.000" width="415.200" height="70" rx="13" fill="#FCF3E7" stroke="#E8C49E" stroke-width="1.25" id="review-40" />
+    <text x="85.200" y="698.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#884C1D" id="review-41">Step <tspan id="review-41-span-1" font-style="italic">k</tspan></text>
+    <text x="85.200" y="724.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" fill="#884C1D" id="review-42">当前扩散步</text>
+    <path d="M 480.000,704.000 L 509.532,704.000" fill="none" stroke="#884C1D" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-43" />
+    <polygon points="516.000,704.000 507.600,700.220 507.600,707.780" fill="#884C1D" stroke-linejoin="round" id="review-44" />
+    <rect x="520.800" y="672.000" width="249.600" height="64" rx="8" fill="#FFFFFF" stroke="#E8C49E" stroke-width="1.25" id="review-45" />
+    <text x="540.000" y="699.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#884C1D" id="review-46">步嵌入</text>
+    <text x="751.200" y="725.000" text-anchor="end" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" fill="#142537" id="review-47">1 × 1024</text>
+    <path d="M 69.600,330.000 L 69.600,339.000 L 472.800,339.000 L 472.800,330.000" fill="none" stroke="#573C82" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" id="review-48" />
+    <text x="271.200" y="369.000" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="700" fill="#573C82" id="review-49">Stage 1 · 动作编码</text>
+    <line x1="804.000" y1="279.000" x2="804.000" y2="704.000" stroke="#536C85" stroke-width="1.6" stroke-linecap="round" id="review-50" />
+    <line x1="770.400" y1="279.000" x2="804.000" y2="279.000" stroke="#573C82" stroke-width="1.6" stroke-linecap="round" id="review-51" />
+    <circle cx="804.000" cy="279.000" r="3.7" fill="#573C82" id="review-52" />
+    <line x1="770.400" y1="422.000" x2="804.000" y2="422.000" stroke="#155E48" stroke-width="1.6" stroke-linecap="round" id="review-53" />
+    <circle cx="804.000" cy="422.000" r="3.7" fill="#155E48" id="review-54" />
+    <line x1="770.400" y1="524.000" x2="804.000" y2="524.000" stroke="#245587" stroke-width="1.6" stroke-linecap="round" id="review-55" />
+    <circle cx="804.000" cy="524.000" r="3.7" fill="#245587" id="review-56" />
+    <line x1="770.400" y1="618.000" x2="804.000" y2="618.000" stroke="#884C1D" stroke-width="1.6" stroke-linecap="round" id="review-57" />
+    <circle cx="804.000" cy="618.000" r="3.7" fill="#884C1D" id="review-58" />
+    <line x1="770.400" y1="704.000" x2="804.000" y2="704.000" stroke="#884C1D" stroke-width="1.6" stroke-linecap="round" id="review-59" />
+    <circle cx="804.000" cy="704.000" r="3.7" fill="#884C1D" id="review-60" />
+    <path d="M 804.000,506.000 L 845.808,506.000" fill="none" stroke="#536C85" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-61" />
+    <polygon points="853.200,506.000 843.600,501.680 843.600,510.320" fill="#536C85" stroke-linejoin="round" id="review-62" />
+  </g>
+  <g aria-label="两级 Transformer 与去噪" id="review-63">
+    <rect x="856.800" y="265.000" width="384.000" height="424" rx="13" fill="#EDF7F1" stroke="#A9D2BA" stroke-width="1.25" id="review-64" />
+    <text x="886.800" y="313.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="27.82" font-weight="700" fill="#155E48" id="review-65">ARDY 自回归扩散</text>
+    <text x="886.800" y="342.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="20.33" font-weight="400" fill="#4B5D70" id="review-66">每个扩散步</text>
+    <rect x="886.800" y="370.000" width="324.000" height="62" rx="7" fill="#FFFFFF" stroke="#A9D2BA" stroke-width="1.25" id="review-67" />
+    <text x="1048.800" y="408.480" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#155E48" id="review-68">Root Transformer</text>
+    <path d="M 1048.800,434.000 L 1048.800,464.840" fill="none" stroke="#155E48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-69" />
+    <polygon points="1048.800,471.000 1053.984,463.000 1043.616,463.000" fill="#155E48" stroke-linejoin="round" id="review-70" />
+    <text x="1069.200" y="456.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#155E48" id="review-71">Local Root</text>
+    <rect x="886.800" y="475.000" width="324.000" height="62" rx="7" fill="#FFFFFF" stroke="#A9D2BA" stroke-width="1.25" id="review-72" />
+    <text x="1048.800" y="513.480" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#155E48" id="review-73">Body Transformer</text>
+    <path d="M 1048.800,539.000 L 1048.800,567.840" fill="none" stroke="#155E48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-74" />
+    <polygon points="1048.800,574.000 1053.984,566.000 1043.616,566.000" fill="#155E48" stroke-linejoin="round" id="review-75" />
+    <rect x="886.800" y="578.000" width="324.000" height="58" rx="7" fill="#D5EDE0" stroke="#A9D2BA" stroke-width="1.25" id="review-76" />
+    <text x="1048.800" y="614.480" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#155E48" id="review-77">多步 DDIM</text>
+    <path d="M 861.600,706.000 L 861.600,715.000 L 1236.000,715.000 L 1236.000,706.000" fill="none" stroke="#155E48" stroke-width="1.55" stroke-linecap="round" stroke-linejoin="round" id="review-78" />
+    <text x="1048.800" y="745.000" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="21.40" font-weight="700" fill="#155E48" id="review-79">Stage 2 · 双 Transformer 生成</text>
+    <path d="M 1242.000,607.000 L 1292.208,607.000" fill="none" stroke="#155E48" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" id="review-80" />
+    <polygon points="1299.600,607.000 1290.000,602.680 1290.000,611.320" fill="#155E48" stroke-linejoin="round" id="review-81" />
+    <text x="1272.000" y="589.000" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#155E48" id="review-82">解码</text>
+  </g>
+  <g aria-label="续写的显式动作" id="review-83">
+    <rect x="1304.400" y="298.000" width="366.000" height="344" rx="13" fill="#EDF7F1" stroke="#A9D2BA" stroke-width="1.25" id="review-84" />
+    <text x="1329.600" y="345.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="28.89" font-weight="700" fill="#155E48" id="review-85">下一段显式动作</text>
+    <text x="1329.600" y="387.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="29" font-weight="700" fill="#142537" id="review-86">8 帧 · 0.32 s</text>
+    <text x="1329.600" y="423.000" text-anchor="start" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="22.47" font-weight="700" fill="#4B5D70" id="review-87">解码前  2 × 148</text>
+    <rect x="1329.600" y="446.000" width="315.600" height="105" rx="9" fill="#FFFFFF" stroke="#A9D2BA" stroke-width="1.25" id="review-88" />
+    <circle cx="1381.200" cy="461.840" r="6.144" fill="#155E48" id="review-89" />
+    <path d="M 1381.200,470.480 L 1381.200,476.240 L 1383.504,499.280" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-90" />
+    <path d="M 1381.200,476.240 L 1362.768,482.000 L 1354.704,499.280" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-91" />
+    <path d="M 1381.200,476.240 L 1399.632,485.840 L 1407.696,496.400" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-92" />
+    <path d="M 1383.504,499.280 L 1367.376,515.600 L 1353.552,529.040" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-93" />
+    <path d="M 1383.504,499.280 L 1396.176,515.600 L 1410.000,529.040" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-94" />
+    <circle cx="1383.504" cy="499.280" r="2.88" fill="#155E48" id="review-95" />
+    <circle cx="1485.600" cy="461.840" r="6.144" fill="#155E48" id="review-96" />
+    <path d="M 1485.600,470.480 L 1485.600,476.240 L 1487.904,499.280" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-97" />
+    <path d="M 1485.600,476.240 L 1466.016,485.840 L 1457.952,499.280" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-98" />
+    <path d="M 1485.600,476.240 L 1506.336,480.080 L 1514.400,496.400" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-99" />
+    <path d="M 1487.904,499.280 L 1471.776,515.600 L 1466.016,528.080" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-100" />
+    <path d="M 1487.904,499.280 L 1500.576,515.600 L 1504.032,524.240" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-101" />
+    <circle cx="1487.904" cy="499.280" r="2.88" fill="#155E48" id="review-102" />
+    <circle cx="1590.000" cy="461.840" r="6.144" fill="#155E48" id="review-103" />
+    <path d="M 1590.000,470.480 L 1590.000,476.240 L 1592.304,499.280" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-104" />
+    <path d="M 1590.000,476.240 L 1566.960,480.080 L 1558.896,499.280" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-105" />
+    <path d="M 1590.000,476.240 L 1606.128,486.800 L 1614.192,496.400" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-106" />
+    <path d="M 1592.304,499.280 L 1576.176,515.600 L 1555.440,527.120" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-107" />
+    <path d="M 1592.304,499.280 L 1604.976,515.600 L 1603.824,528.080" fill="none" stroke="#155E48" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" id="review-108" />
+    <circle cx="1592.304" cy="499.280" r="2.88" fill="#155E48" id="review-109" />
+    <rect x="1329.600" y="572.000" width="154.800" height="38" rx="7" fill="#D5EDE0" stroke="#A9D2BA" stroke-width="1.25" id="review-110" />
+    <text x="1407.000" y="597.120" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#155E48" id="review-111">Patch 1 · 4 帧</text>
+    <rect x="1490.400" y="572.000" width="154.800" height="38" rx="7" fill="#D5EDE0" stroke="#A9D2BA" stroke-width="1.25" id="review-112" />
+    <text x="1567.800" y="597.120" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="19.26" font-weight="700" fill="#155E48" id="review-113">Patch 2 · 4 帧</text>
+  </g>
+  <g aria-label="参考动作接回 History" id="review-114">
+    <path d="M 1486.800,643.000 L 1486.800,806.000 L 32.400,806.000 L 32.400,278.000 L 53.808,278.000" fill="none" stroke="#573C82" stroke-width="1.65" stroke-linecap="round" stroke-linejoin="round" id="review-115" />
+    <polygon points="61.200,278.000 51.600,273.680 51.600,282.320" fill="#573C82" stroke-linejoin="round" id="review-116" />
+    <text x="816.000" y="849.000" text-anchor="middle" font-family="&quot;Times New Roman&quot;, &quot;Liberation Serif&quot;, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, &quot;Noto Sans CJK SC&quot;, serif" font-size="23.54" font-weight="700" fill="#573C82" id="review-117">把保留下来的参考动作接回 History</text>
+  </g>
+</svg>
