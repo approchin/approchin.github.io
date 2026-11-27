@@ -7,6 +7,7 @@ import re
 import shutil
 
 from markdown import markdown
+from ardy_note_editor import note_editor_payload
 
 ROOT = Path(__file__).resolve().parent
 DIST = ROOT / "dist"
@@ -14,7 +15,11 @@ DIST = ROOT / "dist"
 
 def render_article(source, table_label, base=""):
     content = (ROOT / source).read_text(encoding="utf-8")
-    content = re.sub(r'(?<=["(])assets/', f"{base}assets/", content)
+    return render_markdown(content, table_label, base)
+
+
+def render_markdown(content, table_label, base=""):
+    content = re.sub(r'(?<=["(<])assets/', f"{base}assets/", content)
     body = markdown(
         content,
         extensions=["attr_list", "tables", "fenced_code", "pymdownx.arithmatex"],
@@ -142,9 +147,7 @@ def build_sonic():
 
 def write_page(path, fields, template="page.html"):
     page = (ROOT / template).read_text(encoding="utf-8")
-    for marker, fragment in fields.items():
-        page = page.replace("{{" + marker + "}}", fragment)
-    assert re.search(r"\{\{[A-Z_]+\}\}", page) is None
+    page = re.sub(r"\{\{([A-Z_]+)\}\}", lambda marker: fields[marker[1]], page)
     path.parent.mkdir(exist_ok=True, parents=True)
     path.write_text(page, encoding="utf-8")
     print(f"Built {path.relative_to(ROOT)}")
@@ -155,8 +158,13 @@ def build_ardy():
     write_page(DIST / "ardy" / "index.html", {
         "ARTICLE": render_article("ardy-article.md", "ARDY 语音指令和 G1 实验结果", "../"),
     }, template="ardy-page.html")
+    article, editor = note_editor_payload(
+        (ROOT / "ardy-notes.md").read_bytes(),
+        lambda text: render_markdown(text, "ARDY 动作特征与模型输入", "../../"),
+    )
     write_page(DIST / "ardy" / "notes" / "index.html", {
-        "ARTICLE": render_article("ardy-notes.md", "ARDY 动作特征与模型输入", "../../"),
+        "ARTICLE": article,
+        "EDITOR_SOURCE": editor,
     }, template="ardy-notes-page.html")
 
 

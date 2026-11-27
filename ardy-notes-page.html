@@ -3,6 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'none'; form-action 'none'">
   <meta name="description" content="用五张原理图读懂 ARDY。以宇树 G1 H8 为例，串起混合动作 Token、跨窗空间条件、Root 与 Body 去噪和在线重规划。">
   <meta name="theme-color" content="#f3f6f5">
   <title>ARDY 技术笔记 · 两枚 Token 怎样续写 8 帧动作</title>
@@ -10,11 +11,11 @@
   <link rel="icon" type="image/svg+xml" href="../../assets/mark.svg">
   <link rel="stylesheet" href="../../assets/katex/katex.min.css">
   <link rel="stylesheet" href="../../assets/article.css">
+  <link rel="stylesheet" href="../../assets/ardy/note-editor.css">
   <script defer src="../../assets/katex/katex.min.js"></script>
   <script defer src="../../assets/katex/auto-render.min.js"></script>
+  <script defer src="../../assets/ardy/note-editor.js"></script>
   <style>
-    .ardy-notes .note-edit-link { display: inline-flex; align-items: center; min-height: 44px; padding: 0 .65rem; border: 1px solid var(--rule); border-radius: .35rem; white-space: nowrap; }
-    .ardy-notes .note-edit-link:hover { border-color: currentColor; }
     .ardy-notes .article-open { padding-block: clamp(1.95rem, 4.1vw, 3.5rem) clamp(1.25rem, 2.7vw, 2.45rem); }
     .ardy-notes .article-open h1 { max-width: 18em; font-size: clamp(2.05rem, 4.35vw, 3.75rem); line-height: 1.16; letter-spacing: -.018em; text-wrap: balance; }
     .ardy-notes .article-open .title-phrase { white-space: nowrap; color: inherit; }
@@ -46,10 +47,22 @@
       </a>
       <div class="masthead-links">
         <a class="masthead-link" href="../../">项目目录</a>
-        <a class="masthead-link note-edit-link" href="https://github.com/approchin/approchin.github.io/edit/main/ardy-notes.md" target="_blank" rel="noopener noreferrer" aria-label="在 GitHub 编辑本文">编辑本文</a>
+        <a class="masthead-link note-edit-link" id="note-source-link" href="https://github.com/approchin/approchin.github.io/edit/main/ardy-notes.md" target="_blank" rel="noopener noreferrer">编辑 Markdown</a>
+        <button class="masthead-link note-edit-link" type="button" id="note-edit-toggle" aria-controls="note-edit-bar" aria-expanded="false" hidden>编辑本文</button>
       </div>
     </div>
   </header>
+  <div id="note-edit-bar" class="note-edit-bar" hidden>
+    <div class="frame note-edit-row">
+      <span>点段落或小标题编辑</span>
+      <div class="note-edit-actions">
+        <button type="button" id="note-edit-insert">在下方加一段</button>
+        <button type="button" id="note-edit-publish" class="note-primary" disabled>发布更改</button>
+        <button type="button" id="note-edit-exit">退出</button>
+      </div>
+    </div>
+  </div>
+  <p class="frame note-edit-notice" id="note-edit-notice" role="status" hidden></p>
   <main id="content">
     <article>
       <header class="article-open frame" id="top">
@@ -74,14 +87,21 @@
     <p><a href="../">ARDY 复现与跟踪实验</a></p>
     <p><a href="https://arxiv.org/abs/2607.08741">论文</a><span class="foot-dot"> · </span><a href="https://github.com/nv-tlabs/ardy">官方源码</a></p>
   </footer>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      if (typeof renderMathInElement !== 'function') return;
-      renderMathInElement(document.getElementById('note-story'), {
-        delimiters: [{left: '\\[', right: '\\]', display: true}, {left: '\\(', right: '\\)', display: false}],
-        throwOnError: false
-      });
-    });
-  </script>
+  <dialog class="note-publish-dialog" id="note-publish-dialog" aria-labelledby="note-publish-title">
+    <form id="note-publish-form" method="dialog" autocomplete="off">
+      <h2 id="note-publish-title">发布到网站</h2>
+      <div id="note-token-entry">
+        <label for="note-token">GitHub 授权令牌</label>
+        <input id="note-token" type="password" autocomplete="off" autocapitalize="off" spellcheck="false" required>
+        <p class="note-token-help">新建细粒度令牌，只选 <code>approchin.github.io</code>，给 <strong>Contents</strong> 读写权限。<a href="https://github.com/settings/personal-access-tokens/new?name=ARDY+editor&amp;target_name=approchin&amp;expires_in=30&amp;contents=write" target="_blank" rel="noopener noreferrer">创建令牌</a></p>
+      </div>
+      <p class="note-publish-message" id="note-publish-message" role="status" hidden></p>
+      <div class="note-edit-actions">
+        <button id="note-token-cancel" type="button">取消</button>
+        <button id="note-token-submit" class="note-primary" type="submit">发布</button>
+      </div>
+    </form>
+  </dialog>
+  <script type="application/json" id="note-editor-data">{{EDITOR_SOURCE}}</script>
 </body>
 </html>

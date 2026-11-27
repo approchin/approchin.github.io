@@ -1,0 +1,49 @@
+.ardy-notes [hidden] { display: none !important; }
+.ardy-notes .note-edit-link, .note-edit-actions button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: .3rem .68rem;
+  border: 1px solid var(--rule);
+  border-radius: .35rem;
+  color: var(--ink);
+  background: var(--paper);
+  font-family: inherit;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.ardy-notes .note-edit-link:hover, .note-edit-actions button:hover:enabled { border-color: currentColor; }
+.note-edit-actions button:disabled { opacity: .55; cursor: default; }
+.note-edit-actions .note-primary { background: var(--steel); border-color: var(--steel); color: #fff; }
+.note-edit-bar {
+  position: sticky;
+  z-index: 4;
+  top: 0;
+  border-block: 1px solid var(--rule);
+  background: var(--paper);
+}
+.note-edit-row, .note-edit-actions { display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; }
+.note-edit-row { justify-content: space-between; padding-block: .4rem; color: var(--muted); font-size: .9rem; }
+.note-edit-notice { margin-block: 0; padding-block: .65rem; color: var(--muted); }
+.note-editing [contenteditable="true"] { outline: 1px dashed var(--rule); outline-offset: .35rem; border-radius: .12rem; scroll-margin-top: 5.5rem; }
+.note-editing [contenteditable="true"]:focus { outline: 2px solid var(--accent); }
+.note-editing .note-new-paragraph { min-height: 1.8em; }
+.note-editing .note-new-paragraph:empty::before { content: "输入新段落"; color: var(--muted); pointer-events: none; }
+.note-publish-dialog {
+  width: min(28rem, calc(100% - 2rem));
+  padding: 1.25rem;
+  border: 1px solid var(--rule);
+  border-radius: .55rem;
+  color: var(--ink);
+  background: var(--paper);
+}
+.note-publish-dialog::backdrop { background: #17292f77; }
+.note-publish-dialog h2 { margin: 0 0 .8rem; font-size: 1.35rem; }
+.note-publish-dialog label { display: block; font-weight: 650; }
+.note-publish-dialog input { width: 100%; min-height: 44px; margin-top: .3rem; padding: .4rem .55rem; border: 1px solid var(--rule); border-radius: .35rem; background: #fff; color: var(--ink); font: inherit; }
+.note-token-help, .note-publish-message { margin-block: .7rem; font-size: .91rem; }
+.note-token-help { color: var(--muted); }
+.note-publish-message { color: var(--accent); }
+.note-publish-dialog .note-edit-actions { justify-content: flex-end; }
+@media (max-width: 600px) { .note-editing [contenteditable="true"] { scroll-margin-top: 7rem; } }
